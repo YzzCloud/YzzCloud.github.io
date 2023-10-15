@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title></title>
+    <url>/2023/10/15/TCP-UDP%E5%88%9D%E8%AF%95/</url>
+    <content><![CDATA[<h1 id="TCP-IP"><a href="#TCP-IP" class="headerlink" title="TCP&#x2F;IP"></a>TCP&#x2F;IP</h1><h2 id="一、介绍"><a href="#一、介绍" class="headerlink" title="一、介绍"></a>一、介绍</h2><h3 id="1-1对比"><a href="#1-1对比" class="headerlink" title="1.1对比"></a>1.1对比</h3><table>
+<thead>
+<tr>
+<th></th>
+<th>TCP</th>
+<th>UDP</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>连接类型</td>
+<td>面向连接</td>
+<td>面向无连接</td>
+</tr>
+<tr>
+<td>可靠性</td>
+<td>可靠</td>
+<td>不可靠</td>
+</tr>
+<tr>
+<td>有序</td>
+<td>数据包有序号</td>
+<td>没有序号</td>
+</tr>
+<tr>
+<td>使用场景</td>
+<td>数据不能出任何问题</td>
+<td>视频 音频</td>
+</tr>
+</tbody></table>
+<ul>
+<li><p>连接</p>
+<ul>
+<li>TCP需要通讯双方预先建立连接 三次握手 四次挥手</li>
+<li>UDP不需要预先建立连接</li>
+</ul>
+</li>
+<li><p>可靠性</p>
+<ul>
+<li>TCP需要确定每一个包的接收 丢包重发 效率低</li>
+<li>UDP尽力交付数据 不需要确认数据包 丢包无法知道 也不重复 效率高</li>
+</ul>
+</li>
+<li><p>有序</p>
+<ul>
+<li>TCP包有序号 可进行顺序控制 第一个包序号随机生成 之后的序号都和它有关</li>
+<li>UDP包无序 无法纠正 只能在应用层进行验证</li>
+</ul>
+</li>
+</ul>
+<h2 id="二、三次握手"><a href="#二、三次握手" class="headerlink" title="二、三次握手"></a>二、三次握手</h2><h3 id="2-1图解"><a href="#2-1图解" class="headerlink" title="2.1图解"></a>2.1图解</h3><p><img src="C:\Users\admin\AppData\Roaming\Typora\typora-user-images\image-20230729113206627.png" alt="image-20230729113206627"></p>
+<h3 id="2-2说明"><a href="#2-2说明" class="headerlink" title="2.2说明"></a>2.2说明</h3><p><img src="C:\Users\admin\AppData\Roaming\Typora\typora-user-images\image-20230729135210005.png" alt="image-20230729135210005"></p>
+<h2 id="三、四次断开"><a href="#三、四次断开" class="headerlink" title="三、四次断开"></a>三、四次断开</h2><h3 id="3-1图解"><a href="#3-1图解" class="headerlink" title="3.1图解"></a>3.1图解</h3><p><img src="C:\Users\admin\AppData\Roaming\Typora\typora-user-images\image-20230729135651868.png" alt="image-20230729135651868"></p>
+<h3 id="3-2说明"><a href="#3-2说明" class="headerlink" title="3.2说明"></a>3.2说明</h3><p><strong><img src="C:\Users\admin\AppData\Roaming\Typora\typora-user-images\image-20230729140242969.png" alt="image-20230729140242969"></strong></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>hello hexo -_-</title>
+    <url>/2023/10/15/hello-hexo/</url>
+    <content><![CDATA[<h2 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h2><p>内容1</p>
+<hr>
+<h2 id="第二章"><a href="#第二章" class="headerlink" title="第二章"></a>第二章</h2><p>内容2</p>
+<h2 id="参考地址"><a href="#参考地址" class="headerlink" title="参考地址"></a>参考地址</h2><p>YzzCloud</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2023/10/15/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+  </entry>
+</search>
