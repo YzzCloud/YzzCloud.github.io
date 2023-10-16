@@ -1,110 +1,300 @@
 <?xml version="1.0" encoding="utf-8"?>
-<search> 
-  
-  
-    
-    <entry>
-      <title>testimg</title>
-      <link href="/2023/10/15/testimg/"/>
-      <url>/2023/10/15/testimg/</url>
-      
-        <content type="html"><![CDATA[<p>摘要:    description: 介绍了图片的使用</p><span id="more"></span><p><img src="image-20231015214211675.png" alt="image-20231015214211675"></p><h1 id="测试图片"><a href="#测试图片" class="headerlink" title="测试图片"></a>测试图片</h1>]]></content>
-      
-      
+<search>
+  <entry>
+    <title>TCP/IP基础</title>
+    <url>/2023/10/15/TCP-IP%E5%9F%BA%E7%A1%80/</url>
+    <content><![CDATA[<h1 id="TCP-IP"><a href="#TCP-IP" class="headerlink" title="TCP&#x2F;IP"></a>TCP&#x2F;IP</h1><h2 id="一、介绍"><a href="#一、介绍" class="headerlink" title="一、介绍"></a>一、介绍</h2><h3 id="1-1对比"><a href="#1-1对比" class="headerlink" title="1.1对比"></a>1.1对比</h3><table>
+<thead>
+<tr>
+<th></th>
+<th>TCP</th>
+<th>UDP</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>连接类型</td>
+<td>面向连接</td>
+<td>面向无连接</td>
+</tr>
+<tr>
+<td>可靠性</td>
+<td>可靠</td>
+<td>不可靠</td>
+</tr>
+<tr>
+<td>有序</td>
+<td>数据包有序号</td>
+<td>没有序号</td>
+</tr>
+<tr>
+<td>使用场景</td>
+<td>数据不能出任何问题</td>
+<td>视频 音频</td>
+</tr>
+</tbody></table>
+<ul>
+<li><p>连接</p>
+<ul>
+<li>TCP需要通讯双方预先建立连接 三次握手 四次挥手</li>
+<li>UDP不需要预先建立连接</li>
+</ul>
+</li>
+<li><p>可靠性</p>
+<ul>
+<li>TCP需要确定每一个包的接收 丢包重发 效率低</li>
+<li>UDP尽力交付数据 不需要确认数据包 丢包无法知道 也不重复 效率高</li>
+</ul>
+</li>
+<li><p>有序</p>
+<ul>
+<li>TCP包有序号 可进行顺序控制 第一个包序号随机生成 之后的序号都和它有关</li>
+<li>UDP包无序 无法纠正 只能在应用层进行验证</li>
+</ul>
+</li>
+</ul>
+<h2 id="二、三次握手"><a href="#二、三次握手" class="headerlink" title="二、三次握手"></a>二、三次握手</h2><h3 id="2-1图解"><a href="#2-1图解" class="headerlink" title="2.1图解"></a>2.1图解</h3><p><img src="image-20230729113206627.png" alt="image-20230729113206627"></p>
+<h3 id="2-2说明"><a href="#2-2说明" class="headerlink" title="2.2说明"></a>2.2说明</h3><p><img src="image-20230729135210005.png" alt="image-20230729135210005"></p>
+<h2 id="三、四次断开"><a href="#三、四次断开" class="headerlink" title="三、四次断开"></a>三、四次断开</h2><h3 id="3-1图解"><a href="#3-1图解" class="headerlink" title="3.1图解"></a>3.1图解</h3><p><img src="image-20230729135651868.png" alt="image-20230729135651868"></p>
+<h3 id="3-2说明"><a href="#3-2说明" class="headerlink" title="3.2说明"></a>3.2说明</h3><p><strong><img src="image-20230729140242969.png" alt="image-20230729140242969"></strong></p>
+]]></content>
       <categories>
-          
-          <category> Python </category>
-          
+        <category>Datacom</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> PY </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>TCP/IP基础</title>
-      <link href="/2023/10/15/TCP-IP%E5%9F%BA%E7%A1%80/"/>
-      <url>/2023/10/15/TCP-IP%E5%9F%BA%E7%A1%80/</url>
-      
-        <content type="html"><![CDATA[<h1 id="TCP-IP"><a href="#TCP-IP" class="headerlink" title="TCP&#x2F;IP"></a>TCP&#x2F;IP</h1><h2 id="一、介绍"><a href="#一、介绍" class="headerlink" title="一、介绍"></a>一、介绍</h2><h3 id="1-1对比"><a href="#1-1对比" class="headerlink" title="1.1对比"></a>1.1对比</h3><table><thead><tr><th></th><th>TCP</th><th>UDP</th></tr></thead><tbody><tr><td>连接类型</td><td>面向连接</td><td>面向无连接</td></tr><tr><td>可靠性</td><td>可靠</td><td>不可靠</td></tr><tr><td>有序</td><td>数据包有序号</td><td>没有序号</td></tr><tr><td>使用场景</td><td>数据不能出任何问题</td><td>视频 音频</td></tr></tbody></table><ul><li><p>连接</p><ul><li>TCP需要通讯双方预先建立连接 三次握手 四次挥手</li><li>UDP不需要预先建立连接</li></ul></li><li><p>可靠性</p><ul><li>TCP需要确定每一个包的接收 丢包重发 效率低</li><li>UDP尽力交付数据 不需要确认数据包 丢包无法知道 也不重复 效率高</li></ul></li><li><p>有序</p><ul><li>TCP包有序号 可进行顺序控制 第一个包序号随机生成 之后的序号都和它有关</li><li>UDP包无序 无法纠正 只能在应用层进行验证</li></ul></li></ul><h2 id="二、三次握手"><a href="#二、三次握手" class="headerlink" title="二、三次握手"></a>二、三次握手</h2><h3 id="2-1图解"><a href="#2-1图解" class="headerlink" title="2.1图解"></a>2.1图解</h3><p><img src="image-20230729113206627.png" alt="image-20230729113206627"></p><h3 id="2-2说明"><a href="#2-2说明" class="headerlink" title="2.2说明"></a>2.2说明</h3><p><img src="image-20230729135210005.png" alt="image-20230729135210005"></p><h2 id="三、四次断开"><a href="#三、四次断开" class="headerlink" title="三、四次断开"></a>三、四次断开</h2><h3 id="3-1图解"><a href="#3-1图解" class="headerlink" title="3.1图解"></a>3.1图解</h3><p><img src="image-20230729135651868.png" alt="image-20230729135651868"></p><h3 id="3-2说明"><a href="#3-2说明" class="headerlink" title="3.2说明"></a>3.2说明</h3><p><strong><img src="image-20230729140242969.png" alt="image-20230729140242969"></strong></p>]]></content>
-      
-      
+      <tags>
+        <tag>TCP/IP</tag>
+        <tag>Datacom</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2023/10/15/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>hello hexo -_-</title>
+    <url>/2023/10/15/hello-hexo/</url>
+    <content><![CDATA[<h2 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h2><p>内容1</p>
+<hr>
+<h2 id="第二章"><a href="#第二章" class="headerlink" title="第二章"></a>第二章</h2><p>内容2</p>
+<h2 id="参考地址"><a href="#参考地址" class="headerlink" title="参考地址"></a>参考地址</h2><p>YzzCloud</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>python 基础语法</title>
+    <url>/2023/10/15/python-%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/</url>
+    <content><![CDATA[<p>摘要:    description: 介绍了python基础语法</p>
+<span id="more"></span>
+
+
+<h1 id="02-基础语法"><a href="#02-基础语法" class="headerlink" title="02. 基础语法"></a>02. 基础语法</h1><h2 id="1-编码"><a href="#1-编码" class="headerlink" title="1. 编码"></a>1. 编码</h2><p>由于计算机只能够识别1跟0两种信号，那么就需要我们将信息转换成计算机所能够理解的信号，</p>
+<p>因此编码的本质就是人所能够理解的字符与计算机所能够理解的二进制之间的对应关系，也就是类似于密码本一样的东西。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">马   0000 0001</span><br><span class="line">琨   0000 0010</span><br><span class="line">琪   0000 0011</span><br></pre></td></tr></table></figure>
+
+<p>不同的编码模式对于同一个字符可能会存在不同的对应关系</p>
+<h3 id="1-2-ASCII编码"><a href="#1-2-ASCII编码" class="headerlink" title="1.2 ASCII编码"></a>1.2 ASCII编码</h3><blockquote>
+<p><a href="http://www.lookuptables.com/">www.lookuptables.com</a></p>
+</blockquote>
+<p>最早期一种编码模式，采用一个字节来表示对应关系，由于一个字节等于8个bit的长度，共有256种对应方式</p>
+<p>因此只能够对一些指令，常见的符号，以及数字和英文字符提供码位</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">A--65--01000001</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-3-GBK编码"><a href="#1-3-GBK编码" class="headerlink" title="1.3 GBK编码"></a>1.3 GBK编码</h3><p>GB2312，中国指定的编码标准，为中国的汉字提供了二进制的码位。</p>
+<p>GBK编码就是在GB2312的基础上发展起来的，也为日韩相关的文字提供了二进制的码位</p>
+<ul>
+<li><p>使用一个字节来表示对应关系</p>
+</li>
+<li><p>使用两个字节来表示对应关系（16bit 65536）</p>
+</li>
+</ul>
+<h3 id="1-4-UNICODE编码"><a href="#1-4-UNICODE编码" class="headerlink" title="1.4 UNICODE编码"></a>1.4 UNICODE编码</h3><p>万国码，为全球的每一个文字都提供了一个二进制的码位</p>
+<ul>
+<li><p>USC2，使用两个字节来表示对应关系</p>
+</li>
+<li><p>USC4，使用四个字节来表示对应关系（32bit 42.9亿）</p>
+</li>
+</ul>
+<p>在进行存储和数据传输时，会浪费大量的空间</p>
+<p>假设我们举一个非常极端的例子，假设使用ASCII编码存储一个G的A，此时对应的使用unicode编码要占用4个G</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">A--65--01000001  ASCII</span><br><span class="line">A--01000001 01000001 01000001 01000001 unicode</span><br></pre></td></tr></table></figure>
+
+<p>在内存中处理数据时，一般都会采用unicode编码</p>
+<h3 id="1-5-UTF-8编码"><a href="#1-5-UTF-8编码" class="headerlink" title="1.5 UTF-8编码"></a>1.5 UTF-8编码</h3><p>utf-8编码也可以为全球的每一个文字都提供了一个二进制的码位，但在unicode的基础上进行了压缩</p>
+<p>使用一个字节来表示对应关系</p>
+<p>使用两个字节来表示对应关系</p>
+<p>使用三个字节来表示对应关系</p>
+<p>使用四个字节来表示对应关系</p>
+<p>因此UTF-8的编码适合进行数据的存储以及数据的传输</p>
+<h3 id="1-6-乱码"><a href="#1-6-乱码" class="headerlink" title="1.6 乱码"></a>1.6 乱码</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">马--<span class="number">65</span>--<span class="number">0</span>1000001  <span class="number">0</span>1000001 GBK</span><br><span class="line">       <span class="number">0</span>1000001  <span class="number">0</span>1000001 UTF-<span class="number">8</span>  </span><br><span class="line">       找不到就会出现乱码</span><br><span class="line">目前的文件默认采用的都是utf-<span class="number">8</span>的编码，如果想要改变默认的编码模式，可以在python文件的头部加上一段代码</span><br><span class="line"><span class="comment"># 默认的编码模式改为GBK</span></span><br><span class="line"><span class="comment"># -*- coding:GBK -*-  </span></span><br><span class="line">即便能够这样改变编码模式，但是建议还是采用UTF-<span class="number">8</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="2-进制转换"><a href="#2-进制转换" class="headerlink" title="2. 进制转换"></a>2. 进制转换</h2><h3 id="2-1-进制在python中的表示"><a href="#2-1-进制在python中的表示" class="headerlink" title="2.1 进制在python中的表示"></a>2.1 进制在python中的表示</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">十进制       int</span><br><span class="line">二进制       bin</span><br><span class="line">八进制       oct</span><br><span class="line">十六进制     hex</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="2-2-进制转换方法"><a href="#2-2-进制转换方法" class="headerlink" title="2.2 进制转换方法"></a>2.2 进制转换方法</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="number">1.</span>将十进制转成二进制</span><br><span class="line">v1 = <span class="number">10</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">bin</span>(v1))</span><br><span class="line"><span class="number">0b1010</span></span><br><span class="line"><span class="number">2.</span>将十进制转成八进制</span><br><span class="line">v1 = <span class="number">10</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">oct</span>(v1))</span><br><span class="line"><span class="number">0o12</span></span><br><span class="line"><span class="number">3.</span>将十进制转成十六进制</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">hex</span>(v1))</span><br><span class="line"><span class="number">0xa</span></span><br><span class="line"><span class="number">4.</span>将<span class="number">2</span>进制转成十进制</span><br><span class="line">v1 = <span class="string">&#x27;0b1010&#x27;</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">int</span>(v1,base=<span class="number">2</span>))</span><br><span class="line"><span class="number">5.</span>将<span class="number">8</span>进制转成十进制</span><br><span class="line">v1 = <span class="string">&#x27;0o12&#x27;</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">int</span>(v1,base=<span class="number">8</span>))</span><br><span class="line"><span class="number">6.</span>将十六进制转成十进制</span><br><span class="line">v1 = <span class="string">&#x27;0xa&#x27;</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">int</span>(v1,base=<span class="number">16</span>))</span><br><span class="line"><span class="number">7.</span>将二进制转成十六进制</span><br><span class="line">v1 = <span class="string">&#x27;0b1010&#x27;</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">hex</span>(<span class="built_in">int</span>(v1,base=<span class="number">2</span>)))</span><br><span class="line"><span class="number">0xa</span></span><br><span class="line">v1 = <span class="number">0b1010</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">hex</span>(v1))</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="3-基本常用函数"><a href="#3-基本常用函数" class="headerlink" title="3. 基本常用函数"></a>3. 基本常用函数</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">函数就是一个功能的集合</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-1-print"><a href="#3-1-print" class="headerlink" title="3.1 print"></a>3.1 print</h3><h4 id="3-1-1-print函数的功能"><a href="#3-1-1-print函数的功能" class="headerlink" title="3.1.1 print函数的功能"></a>3.1.1 print函数的功能</h4><p>输出一段内容，显示给用户</p>
+<h4 id="3-1-2-常用参数"><a href="#3-1-2-常用参数" class="headerlink" title="3.1.2 常用参数"></a>3.1.2 常用参数</h4><ul>
+<li>end：输出内容之后默认采用的符号，默认是换行符\n</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">print(&quot;123&quot;,end=&quot;,&quot;)</span><br><span class="line">print(&quot;456&quot;)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>sep：输出多段内容之间连接的符号，默认是空格</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">print(&quot;123&quot;, &quot;456&quot;,sep=&quot;,&quot;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-2-input"><a href="#3-2-input" class="headerlink" title="3.2 input"></a>3.2 input</h3><ul>
+<li>作用：跟用户做一个交互，接收用户输入的一段内容，注意：通过input方法接收到的值是字符串类型</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">name = <span class="built_in">input</span>(<span class="string">&quot;请输入用户名：&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(name)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">name = <span class="built_in">input</span>(<span class="string">&quot;请输入用户名：&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">int</span>(name)+<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="4-变量"><a href="#4-变量" class="headerlink" title="4. 变量"></a>4. 变量</h2><h3 id="4-1-变量的本质"><a href="#4-1-变量的本质" class="headerlink" title="4.1 变量的本质"></a>4.1 变量的本质</h3><p>变量就是一种容器，指向某一块内存地址</p>
+<p>假设现在我们将整个内存当成一个非常大的仓库，取件码 货物 货物实际存放的位置</p>
+<p>完整的变量：变量名，变量值，内存地址</p>
+<h5 id="4-2-变量定义-调用"><a href="#4-2-变量定义-调用" class="headerlink" title="4.2 变量定义&amp;调用"></a>4.2 变量定义&amp;调用</h5><p>变量必须先定义，再调用</p>
+<p>定义：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">name = <span class="string">&quot;zhangsan&quot;</span></span><br><span class="line">age = <span class="number">18</span></span><br><span class="line">gender = <span class="string">&quot;male&quot;</span></span><br><span class="line">a_list = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br></pre></td></tr></table></figure>
+
+<p>调用：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="built_in">print</span>(name)</span><br><span class="line">info = <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">name:&#123;&#125;</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span>.<span class="built_in">format</span>(name)</span><br><span class="line"><span class="built_in">print</span>(info)</span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="4-3-变量定义规则"><a href="#4-3-变量定义规则" class="headerlink" title="4.3 变量定义规则"></a>4.3 变量定义规则</h5><ul>
+<li>变量名只能由字母、数字、下划线来组成</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">$ = <span class="number">123</span> <span class="comment">#错误的变量名</span></span><br><span class="line">name_1 = <span class="number">123</span> <span class="comment">#正确的变量名</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>不能以数字开头</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">1name = <span class="number">123</span> <span class="comment">#错误的变量名</span></span><br><span class="line">name1 = <span class="number">123</span> <span class="comment">#正确的变量名</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>不能用python中的关键字来作为变量名</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="built_in">print</span> = <span class="number">123</span> <span class="comment">#错误的示范，语法上不会出错，但是会影响原有关键字的功能</span></span><br><span class="line"><span class="keyword">del</span> <span class="built_in">print</span></span><br><span class="line"><span class="keyword">break</span> <span class="keyword">continue</span> <span class="keyword">pass</span>... //不要用</span><br></pre></td></tr></table></figure>
+
+<h5 id="4-4-变量命名规范"><a href="#4-4-变量命名规范" class="headerlink" title="4.4 变量命名规范"></a>4.4 变量命名规范</h5><p>PEP8规范：业界定义的一种规范，理论上来讲不需要强制遵守，但是建议采用这种格式</p>
+<p>在pycharm当中可以自动的检查代码是否符合PEP8的规范，使用快捷键Ctrl+Alt+L来进行调整</p>
+<ul>
+<li>在定义变量时，尽量使用英文，不要使用拼音的缩写</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">xuehao = <span class="string">&quot;123456&quot;</span> <span class="comment">#错误的命名规范</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>下划线连接：一般来说，定义变量，函数时采用下划线连接</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">student_id = <span class="string">&quot;123456&quot;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>驼峰体：定义类的时候采用驼峰体</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">StudentId = <span class="string">&quot;123456&quot;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="4-5-变量的修改与删除"><a href="#4-5-变量的修改与删除" class="headerlink" title="4.5 变量的修改与删除"></a>4.5 变量的修改与删除</h5><ul>
+<li>场景1</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">name = <span class="string">&quot;张三&quot;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>场景2</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">name = <span class="string">&quot;张三&quot;</span></span><br><span class="line">name = <span class="string">&quot;李四&quot;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>场景3</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">name = <span class="string">&quot;张三&quot;</span></span><br><span class="line">new_name = name</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>场景4</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">name = <span class="string">&quot;张三&quot;</span></span><br><span class="line">new_name = name</span><br><span class="line">name = <span class="string">&quot;李四&quot;</span></span><br><span class="line">new_name = name</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>场景5</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">num = <span class="number">18</span></span><br><span class="line">age = <span class="built_in">str</span>(num)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>场景6</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">name = <span class="string">&quot;张三&quot;</span></span><br><span class="line"><span class="keyword">del</span> name</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="5-注释"><a href="#5-注释" class="headerlink" title="5. 注释"></a>5. 注释</h3><p>在编写代码的时候，我们需要对某些内容进行注释，解释器会忽略注释后的代码，不会执行</p>
+<ul>
+<li><p>注释代码，程序运行时，不会执行已经被注释掉的代码</p>
+<ul>
+<li>单行注释</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># print(123)</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>多行注释</li>
+</ul>
+ <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># name = &quot;张三&quot;</span></span><br><span class="line"><span class="comment"># new_name = name</span></span><br><span class="line"><span class="comment"># name = &quot;李四&quot;</span></span><br><span class="line"><span class="comment"># new_name = name</span></span><br><span class="line"><span class="comment"># print(new_name,name)</span></span><br><span class="line"></span><br><span class="line">全部选中 Ctrl+/</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>对一些变量或者方法做解释说明</p>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">name = <span class="string">&quot;张三&quot;</span>  <span class="comment"># 定义一个名为张三的姓名</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+]]></content>
       <categories>
-          
-          <category> Datacom </category>
-          
+        <category>Python</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> TCP/IP </tag>
-            
-            <tag> Datacom </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>python 基础语法</title>
-      <link href="/2023/10/15/python-%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/"/>
-      <url>/2023/10/15/python-%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/</url>
-      
-        <content type="html"><![CDATA[<p>摘要:    description: 介绍了python基础语法</p><span id="more"></span><h1 id="02-基础语法"><a href="#02-基础语法" class="headerlink" title="02. 基础语法"></a>02. 基础语法</h1><h2 id="1-编码"><a href="#1-编码" class="headerlink" title="1. 编码"></a>1. 编码</h2><p>由于计算机只能够识别1跟0两种信号，那么就需要我们将信息转换成计算机所能够理解的信号，</p><p>因此编码的本质就是人所能够理解的字符与计算机所能够理解的二进制之间的对应关系，也就是类似于密码本一样的东西。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">马   0000 0001</span><br><span class="line">琨   0000 0010</span><br><span class="line">琪   0000 0011</span><br></pre></td></tr></table></figure><p>不同的编码模式对于同一个字符可能会存在不同的对应关系</p><h3 id="1-2-ASCII编码"><a href="#1-2-ASCII编码" class="headerlink" title="1.2 ASCII编码"></a>1.2 ASCII编码</h3><blockquote><p><a href="http://www.lookuptables.com/">www.lookuptables.com</a></p></blockquote><p>最早期一种编码模式，采用一个字节来表示对应关系，由于一个字节等于8个bit的长度，共有256种对应方式</p><p>因此只能够对一些指令，常见的符号，以及数字和英文字符提供码位</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">A--65--01000001</span><br></pre></td></tr></table></figure><h3 id="1-3-GBK编码"><a href="#1-3-GBK编码" class="headerlink" title="1.3 GBK编码"></a>1.3 GBK编码</h3><p>GB2312，中国指定的编码标准，为中国的汉字提供了二进制的码位。</p><p>GBK编码就是在GB2312的基础上发展起来的，也为日韩相关的文字提供了二进制的码位</p><ul><li><p>使用一个字节来表示对应关系</p></li><li><p>使用两个字节来表示对应关系（16bit 65536）</p></li></ul><h3 id="1-4-UNICODE编码"><a href="#1-4-UNICODE编码" class="headerlink" title="1.4 UNICODE编码"></a>1.4 UNICODE编码</h3><p>万国码，为全球的每一个文字都提供了一个二进制的码位</p><ul><li><p>USC2，使用两个字节来表示对应关系</p></li><li><p>USC4，使用四个字节来表示对应关系（32bit 42.9亿）</p></li></ul><p>在进行存储和数据传输时，会浪费大量的空间</p><p>假设我们举一个非常极端的例子，假设使用ASCII编码存储一个G的A，此时对应的使用unicode编码要占用4个G</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">A--65--01000001  ASCII</span><br><span class="line">A--01000001 01000001 01000001 01000001 unicode</span><br></pre></td></tr></table></figure><p>在内存中处理数据时，一般都会采用unicode编码</p><h3 id="1-5-UTF-8编码"><a href="#1-5-UTF-8编码" class="headerlink" title="1.5 UTF-8编码"></a>1.5 UTF-8编码</h3><p>utf-8编码也可以为全球的每一个文字都提供了一个二进制的码位，但在unicode的基础上进行了压缩</p><p>使用一个字节来表示对应关系</p><p>使用两个字节来表示对应关系</p><p>使用三个字节来表示对应关系</p><p>使用四个字节来表示对应关系</p><p>因此UTF-8的编码适合进行数据的存储以及数据的传输</p><h3 id="1-6-乱码"><a href="#1-6-乱码" class="headerlink" title="1.6 乱码"></a>1.6 乱码</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">马--<span class="number">65</span>--<span class="number">0</span>1000001  <span class="number">0</span>1000001 GBK</span><br><span class="line">       <span class="number">0</span>1000001  <span class="number">0</span>1000001 UTF-<span class="number">8</span>  </span><br><span class="line">       找不到就会出现乱码</span><br><span class="line">目前的文件默认采用的都是utf-<span class="number">8</span>的编码，如果想要改变默认的编码模式，可以在python文件的头部加上一段代码</span><br><span class="line"><span class="comment"># 默认的编码模式改为GBK</span></span><br><span class="line"><span class="comment"># -*- coding:GBK -*-  </span></span><br><span class="line">即便能够这样改变编码模式，但是建议还是采用UTF-<span class="number">8</span></span><br></pre></td></tr></table></figure><h2 id="2-进制转换"><a href="#2-进制转换" class="headerlink" title="2. 进制转换"></a>2. 进制转换</h2><h3 id="2-1-进制在python中的表示"><a href="#2-1-进制在python中的表示" class="headerlink" title="2.1 进制在python中的表示"></a>2.1 进制在python中的表示</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">十进制       int</span><br><span class="line">二进制       bin</span><br><span class="line">八进制       oct</span><br><span class="line">十六进制     hex</span><br></pre></td></tr></table></figure><h3 id="2-2-进制转换方法"><a href="#2-2-进制转换方法" class="headerlink" title="2.2 进制转换方法"></a>2.2 进制转换方法</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span>将十进制转成二进制</span><br><span class="line">v1 = <span class="number">10</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">bin</span>(v1))</span><br><span class="line"><span class="number">0b1010</span></span><br><span class="line"><span class="number">2.</span>将十进制转成八进制</span><br><span class="line">v1 = <span class="number">10</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">oct</span>(v1))</span><br><span class="line"><span class="number">0o12</span></span><br><span class="line"><span class="number">3.</span>将十进制转成十六进制</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">hex</span>(v1))</span><br><span class="line"><span class="number">0xa</span></span><br><span class="line"><span class="number">4.</span>将<span class="number">2</span>进制转成十进制</span><br><span class="line">v1 = <span class="string">&#x27;0b1010&#x27;</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">int</span>(v1,base=<span class="number">2</span>))</span><br><span class="line"><span class="number">5.</span>将<span class="number">8</span>进制转成十进制</span><br><span class="line">v1 = <span class="string">&#x27;0o12&#x27;</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">int</span>(v1,base=<span class="number">8</span>))</span><br><span class="line"><span class="number">6.</span>将十六进制转成十进制</span><br><span class="line">v1 = <span class="string">&#x27;0xa&#x27;</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">int</span>(v1,base=<span class="number">16</span>))</span><br><span class="line"><span class="number">7.</span>将二进制转成十六进制</span><br><span class="line">v1 = <span class="string">&#x27;0b1010&#x27;</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">hex</span>(<span class="built_in">int</span>(v1,base=<span class="number">2</span>)))</span><br><span class="line"><span class="number">0xa</span></span><br><span class="line">v1 = <span class="number">0b1010</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">hex</span>(v1))</span><br></pre></td></tr></table></figure><h2 id="3-基本常用函数"><a href="#3-基本常用函数" class="headerlink" title="3. 基本常用函数"></a>3. 基本常用函数</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">函数就是一个功能的集合</span><br></pre></td></tr></table></figure><h3 id="3-1-print"><a href="#3-1-print" class="headerlink" title="3.1 print"></a>3.1 print</h3><h4 id="3-1-1-print函数的功能"><a href="#3-1-1-print函数的功能" class="headerlink" title="3.1.1 print函数的功能"></a>3.1.1 print函数的功能</h4><p>输出一段内容，显示给用户</p><h4 id="3-1-2-常用参数"><a href="#3-1-2-常用参数" class="headerlink" title="3.1.2 常用参数"></a>3.1.2 常用参数</h4><ul><li>end：输出内容之后默认采用的符号，默认是换行符\n</li></ul><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">print(&quot;123&quot;,end=&quot;,&quot;)</span><br><span class="line">print(&quot;456&quot;)</span><br></pre></td></tr></table></figure><ul><li>sep：输出多段内容之间连接的符号，默认是空格</li></ul><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(&quot;123&quot;, &quot;456&quot;,sep=&quot;,&quot;)</span><br></pre></td></tr></table></figure><h3 id="3-2-input"><a href="#3-2-input" class="headerlink" title="3.2 input"></a>3.2 input</h3><ul><li>作用：跟用户做一个交互，接收用户输入的一段内容，注意：通过input方法接收到的值是字符串类型</li></ul><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">name = <span class="built_in">input</span>(<span class="string">&quot;请输入用户名：&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(name)</span><br></pre></td></tr></table></figure><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">name = <span class="built_in">input</span>(<span class="string">&quot;请输入用户名：&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">int</span>(name)+<span class="number">2</span>)</span><br></pre></td></tr></table></figure><h2 id="4-变量"><a href="#4-变量" class="headerlink" title="4. 变量"></a>4. 变量</h2><h3 id="4-1-变量的本质"><a href="#4-1-变量的本质" class="headerlink" title="4.1 变量的本质"></a>4.1 变量的本质</h3><p>变量就是一种容器，指向某一块内存地址</p><p>假设现在我们将整个内存当成一个非常大的仓库，取件码 货物 货物实际存放的位置</p><p>完整的变量：变量名，变量值，内存地址</p><h5 id="4-2-变量定义-调用"><a href="#4-2-变量定义-调用" class="headerlink" title="4.2 变量定义&amp;调用"></a>4.2 变量定义&amp;调用</h5><p>变量必须先定义，再调用</p><p>定义：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">name = <span class="string">&quot;zhangsan&quot;</span></span><br><span class="line">age = <span class="number">18</span></span><br><span class="line">gender = <span class="string">&quot;male&quot;</span></span><br><span class="line">a_list = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br></pre></td></tr></table></figure><p>调用：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(name)</span><br><span class="line">info = <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">name:&#123;&#125;</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span>.<span class="built_in">format</span>(name)</span><br><span class="line"><span class="built_in">print</span>(info)</span><br></pre></td></tr></table></figure><h5 id="4-3-变量定义规则"><a href="#4-3-变量定义规则" class="headerlink" title="4.3 变量定义规则"></a>4.3 变量定义规则</h5><ul><li>变量名只能由字母、数字、下划线来组成</li></ul><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ = <span class="number">123</span> <span class="comment">#错误的变量名</span></span><br><span class="line">name_1 = <span class="number">123</span> <span class="comment">#正确的变量名</span></span><br></pre></td></tr></table></figure><ul><li>不能以数字开头</li></ul><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1name = <span class="number">123</span> <span class="comment">#错误的变量名</span></span><br><span class="line">name1 = <span class="number">123</span> <span class="comment">#正确的变量名</span></span><br></pre></td></tr></table></figure><ul><li>不能用python中的关键字来作为变量名</li></ul><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span> = <span class="number">123</span> <span class="comment">#错误的示范，语法上不会出错，但是会影响原有关键字的功能</span></span><br><span class="line"><span class="keyword">del</span> <span class="built_in">print</span></span><br><span class="line"><span class="keyword">break</span> <span class="keyword">continue</span> <span class="keyword">pass</span>... //不要用</span><br></pre></td></tr></table></figure><h5 id="4-4-变量命名规范"><a href="#4-4-变量命名规范" class="headerlink" title="4.4 变量命名规范"></a>4.4 变量命名规范</h5><p>PEP8规范：业界定义的一种规范，理论上来讲不需要强制遵守，但是建议采用这种格式</p><p>在pycharm当中可以自动的检查代码是否符合PEP8的规范，使用快捷键Ctrl+Alt+L来进行调整</p><ul><li>在定义变量时，尽量使用英文，不要使用拼音的缩写</li></ul><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xuehao = <span class="string">&quot;123456&quot;</span> <span class="comment">#错误的命名规范</span></span><br></pre></td></tr></table></figure><ul><li>下划线连接：一般来说，定义变量，函数时采用下划线连接</li></ul><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">student_id = <span class="string">&quot;123456&quot;</span></span><br></pre></td></tr></table></figure><ul><li>驼峰体：定义类的时候采用驼峰体</li></ul><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">StudentId = <span class="string">&quot;123456&quot;</span></span><br></pre></td></tr></table></figure><h5 id="4-5-变量的修改与删除"><a href="#4-5-变量的修改与删除" class="headerlink" title="4.5 变量的修改与删除"></a>4.5 变量的修改与删除</h5><ul><li>场景1</li></ul><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">name = <span class="string">&quot;张三&quot;</span></span><br></pre></td></tr></table></figure><ul><li>场景2</li></ul><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">name = <span class="string">&quot;张三&quot;</span></span><br><span class="line">name = <span class="string">&quot;李四&quot;</span></span><br></pre></td></tr></table></figure><ul><li>场景3</li></ul><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">name = <span class="string">&quot;张三&quot;</span></span><br><span class="line">new_name = name</span><br></pre></td></tr></table></figure><ul><li>场景4</li></ul><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">name = <span class="string">&quot;张三&quot;</span></span><br><span class="line">new_name = name</span><br><span class="line">name = <span class="string">&quot;李四&quot;</span></span><br><span class="line">new_name = name</span><br></pre></td></tr></table></figure><ul><li>场景5</li></ul><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">num = <span class="number">18</span></span><br><span class="line">age = <span class="built_in">str</span>(num)</span><br></pre></td></tr></table></figure><ul><li>场景6</li></ul><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">name = <span class="string">&quot;张三&quot;</span></span><br><span class="line"><span class="keyword">del</span> name</span><br></pre></td></tr></table></figure><h3 id="5-注释"><a href="#5-注释" class="headerlink" title="5. 注释"></a>5. 注释</h3><p>在编写代码的时候，我们需要对某些内容进行注释，解释器会忽略注释后的代码，不会执行</p><ul><li><p>注释代码，程序运行时，不会执行已经被注释掉的代码</p><ul><li>单行注释</li></ul><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># print(123)</span></span><br></pre></td></tr></table></figure><ul><li>多行注释</li></ul> <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># name = &quot;张三&quot;</span></span><br><span class="line"><span class="comment"># new_name = name</span></span><br><span class="line"><span class="comment"># name = &quot;李四&quot;</span></span><br><span class="line"><span class="comment"># new_name = name</span></span><br><span class="line"><span class="comment"># print(new_name,name)</span></span><br><span class="line"></span><br><span class="line">全部选中 Ctrl+/</span><br></pre></td></tr></table></figure></li><li><p>对一些变量或者方法做解释说明</p></li></ul><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">name = <span class="string">&quot;张三&quot;</span>  <span class="comment"># 定义一个名为张三的姓名</span></span><br></pre></td></tr></table></figure>]]></content>
-      
-      
+      <tags>
+        <tag>PY</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>testimg</title>
+    <url>/2023/10/15/testimg/</url>
+    <content><![CDATA[<p>摘要:    description: 介绍了图片的使用</p>
+<span id="more"></span>
+<p><img src="image-20231015214211675.png" alt="image-20231015214211675"></p>
+<h1 id="测试图片"><a href="#测试图片" class="headerlink" title="测试图片"></a>测试图片</h1>]]></content>
       <categories>
-          
-          <category> Python </category>
-          
+        <category>Python</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> PY </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>hello hexo -_-</title>
-      <link href="/2023/10/15/hello-hexo/"/>
-      <url>/2023/10/15/hello-hexo/</url>
-      
-        <content type="html"><![CDATA[<h2 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h2><p>内容1</p><hr><h2 id="第二章"><a href="#第二章" class="headerlink" title="第二章"></a>第二章</h2><p>内容2</p><h2 id="参考地址"><a href="#参考地址" class="headerlink" title="参考地址"></a>参考地址</h2><p>YzzCloud</p>]]></content>
-      
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Hello World</title>
-      <link href="/2023/10/15/hello-world/"/>
-      <url>/2023/10/15/hello-world/</url>
-      
-        <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
-      
-      
-      
-    </entry>
-    
-    
-  
-  
+      <tags>
+        <tag>PY</tag>
+      </tags>
+  </entry>
 </search>
