@@ -123,13 +123,126 @@
       </tags>
   </entry>
   <entry>
-    <title>hello hexo -_-</title>
-    <url>/2023/10/15/hello-hexo/</url>
-    <content><![CDATA[<h2 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h2><p>内容1</p>
-<hr>
-<h2 id="第二章"><a href="#第二章" class="headerlink" title="第二章"></a>第二章</h2><p>内容2</p>
-<h2 id="参考地址"><a href="#参考地址" class="headerlink" title="参考地址"></a>参考地址</h2><p>YzzCloud</p>
+    <title>RabbitMQ</title>
+    <url>/2023/10/18/RabbitMQ/</url>
+    <content><![CDATA[<p>介绍：RabbitMQ是一个由erlang开发的AMQP（Advanced Message Queue 高级消息队列协议 ）的开源实现，由于erlang 语言的高并发特性，性能较好，本质是个队列，FIFO 先入先出，里面存放的内容是message。</p>
+<p>RabbitMQ 是一个消息中间件：它接收消息并且转发，就类似于一个快递站，卖家把快递通过快递站，送到我们的手上，MQ也是这样，接收并存储消息，再转发。</p>
+<span id="more"></span>
+
+
+<h1 id="RabbitMQ"><a href="#RabbitMQ" class="headerlink" title="RabbitMQ"></a>RabbitMQ</h1><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">erlang-21.3.8.9-1.el7.x86_64.rpm  rabbitmq-server-3.8.1-1.el7.noarch.rpm  tengine-2.3.2.tar.gz</span><br><span class="line">[root@py ~]<span class="comment"># yum install erlang-21.3.8.9-1.el7.x86_64.rpm rabbitmq-server-3.8.1-1.el7.noarch.rpm</span></span><br><span class="line"></span><br><span class="line">Installed:</span><br><span class="line">  erlang.x86_64 0:21.3.8.9-1.el7                  rabbitmq-server.noarch 0:3.8.1-1.el7</span><br><span class="line"></span><br><span class="line">Dependency Installed:</span><br><span class="line">  socat.x86_64 0:1.7.3.2-2.el7</span><br><span class="line"></span><br><span class="line">15672 客户端web</span><br></pre></td></tr></table></figure>
+
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><h3 id="环境变量"><a href="#环境变量" class="headerlink" title="环境变量"></a>环境变量</h3><p><img src="image-20230925174414515.png" alt="image-20230925174414515"></p>
+<h3 id="工作特性"><a href="#工作特性" class="headerlink" title="工作特性"></a>工作特性</h3><p><img src="image-20230925174453467.png" alt="image-20230925174453467"></p>
+<h2 id="插件管理"><a href="#插件管理" class="headerlink" title="插件管理"></a>插件管理</h2><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">root@py ~]<span class="comment"># rabbitmq</span></span><br><span class="line">rabbitmqctl           rabbitmq-plugins      rabbitmq-server</span><br><span class="line">rabbitmq-diagnostics  rabbitmq-queues       rabbitmq-upgrade</span><br><span class="line">[root@py ~]<span class="comment"># ss -tanl</span></span><br><span class="line">State       Recv-Q Send-Q      Local Address:Port                     Peer Address:Port</span><br><span class="line">LISTEN      0      50                      *:3306                                *:*</span><br><span class="line">LISTEN      0      128                     *:6379                                *:*</span><br><span class="line">LISTEN      0      128                     *:22                                  *:*</span><br><span class="line">LISTEN      0      100             127.0.0.1:25                                  *:*</span><br><span class="line">LISTEN      0      128                    :::22                                 :::*</span><br><span class="line">LISTEN      0      128                    :::3000                               :::*</span><br><span class="line">LISTEN      0      100                   ::1:25                                 :::*</span><br><span class="line">[root@py ~]<span class="comment"># rabbitmq-plugins list</span></span><br><span class="line"></span><br><span class="line">[root@py ~]<span class="comment"># rabbitmq-plugins enable rabbitmq_management</span></span><br><span class="line">Enabling plugins on node rabbit@py:</span><br><span class="line">rabbitmq_management</span><br><span class="line">The following plugins have been configured:</span><br><span class="line">  rabbitmq_management</span><br><span class="line">  rabbitmq_management_agent</span><br><span class="line">  rabbitmq_web_dispatch</span><br><span class="line">Applying plugin configuration to rabbit@py...</span><br><span class="line">The following plugins have been enabled:</span><br><span class="line">  rabbitmq_management</span><br><span class="line">  rabbitmq_management_agent</span><br><span class="line">  rabbitmq_web_dispatch</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="启动服务"><a href="#启动服务" class="headerlink" title="启动服务"></a>启动服务</h2><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">[root@py ~]<span class="comment"># systemctl start rabbitmq-server</span></span><br><span class="line">[root@py ~]<span class="comment"># ps -ef |grep rabbit</span></span><br><span class="line">rabbitmq  10262      1  0 17:25 ?     </span><br><span class="line">[root@py ~]<span class="comment"># ss -tanl |grep 5672</span></span><br><span class="line">LISTEN     0      128          *:25672                    *:*</span><br><span class="line">LISTEN     0      128          *:15672                    *:*</span><br><span class="line">LISTEN     0      128         :::5672                    :::*</span><br></pre></td></tr></table></figure>
+
+<p><img src="image-20230925174852367.png" alt="image-20230925174852367"></p>
+<h2 id="用户管理"><a href="#用户管理" class="headerlink" title="用户管理"></a>用户管理</h2><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">[root@py ~]<span class="comment"># rabbitmqctl add_user cloud cloud</span></span><br><span class="line">Adding user <span class="string">&quot;cloud&quot;</span> ...</span><br><span class="line">[root@py ~]<span class="comment"># rabbitmq</span></span><br><span class="line">rabbitmqctl           rabbitmq-plugins      rabbitmq-server</span><br><span class="line">rabbitmq-diagnostics  rabbitmq-queues       rabbitmq-upgrade</span><br><span class="line">[root@py ~]<span class="comment"># rabbitmqctl list_users</span></span><br><span class="line">Listing <span class="built_in">users</span> ...</span><br><span class="line">user    tags</span><br><span class="line">cloud   []</span><br><span class="line">guest   [administrator]</span><br><span class="line">[root@py ~]<span class="comment"># rabbitmqctl set_user_tags cloud administrator</span></span><br><span class="line">Setting tags <span class="keyword">for</span> user <span class="string">&quot;cloud&quot;</span> to [administrator] ...</span><br><span class="line">[root@py ~]<span class="comment"># rabbitmqctl list_users</span></span><br><span class="line">Listing <span class="built_in">users</span> ...</span><br><span class="line">user    tags</span><br><span class="line">cloud   [administrator]</span><br><span class="line">guest   [administrator]</span><br><span class="line">[root@py ~]<span class="comment"># rabbitmqctl change_password cloud newpassword</span></span><br><span class="line">[root@py ~]<span class="comment"># rabbitmqctl delete_user cloud </span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="基本信息"><a href="#基本信息" class="headerlink" title="基本信息"></a>基本信息</h2><p><img src="image-20230925175148206.png" alt="image-20230925175148206"></p>
+<h2 id="virtual-host"><a href="#virtual-host" class="headerlink" title="virtual host"></a>virtual host</h2><blockquote>
+<p>交换机和queue的组合</p>
+</blockquote>
+<p><img src="image-20230925173719204.png" alt="image-20230925173719204"></p>
+<h2 id="PiKa库"><a href="#PiKa库" class="headerlink" title="&#x3D;&#x3D;PiKa库&#x3D;&#x3D;"></a>&#x3D;&#x3D;PiKa库&#x3D;&#x3D;</h2><blockquote>
+<p>Pika是纯Python实现的支持AMQP协议的库</p>
+</blockquote>
+<h2 id="工作原理"><a href="#工作原理" class="headerlink" title="工作原理"></a>工作原理</h2><h3 id="名词解释"><a href="#名词解释" class="headerlink" title="名词解释"></a>名词解释</h3><p><img src="image-20230925181821184.png" alt="image-20230925181821184"></p>
+<blockquote>
+<p>The default exchange is implicitly bound to every queue, with a routing key equal to the queue name. It is not possible to explicitly bind to, or unbind from the default exchange. It also cannot be deleted.</p>
+</blockquote>
+<p><img src="image-20230925182134978.png" alt="image-20230925182134978"></p>
+<p>测试get message</p>
+<p><img src="image-20230925182545661.png" alt="image-20230925182545661"></p>
+<p><img src="image-20230925182637358.png" alt="image-20230925182637358"></p>
+<h2 id="RR"><a href="#RR" class="headerlink" title="&#x3D;&#x3D;RR&#x3D;&#x3D;"></a>&#x3D;&#x3D;RR&#x3D;&#x3D;</h2><p>&#x3D;&#x3D;Round-robin dispatching&#x3D;&#x3D;</p>
+<p><img src="image-20230925201458485.png" alt="image-20230925201458485"></p>
+<p><img src="image-20230925202311723.png" alt="image-20230925202311723"></p>
+<ul>
+<li>●queue. _declare声明- 个queue,有必要的话，创建它。</li>
+<li>●basic. _publish exchange为空就使用缺省exchange,如果找不到指定的exchange,抛异常</li>
+<li>使用缺省exchange,就必须指定routing _key,使用它找到queue</li>
+</ul>
+<p><img src="image-20230925202411777.png" alt="image-20230925202411777"></p>
+<h2 id="生产者"><a href="#生产者" class="headerlink" title="生产者"></a>生产者</h2><figure class="highlight py"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pika</span><br><span class="line"><span class="keyword">from</span> pika.credentials <span class="keyword">import</span> PlainCredentials</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="comment"># 指定虚拟主机 通过交换机路由 声明queue并创建 通过此队列进行通信</span></span><br><span class="line"><span class="comment"># 缺省交换机（不指定就是默认）连接每一个queue直接指定到test/queue</span></span><br><span class="line"><span class="comment"># 消费者通过queue去拿，消费者自己也可以创建queue</span></span><br><span class="line"><span class="comment"># 生产者和消费者通过中间件进行解耦</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># sender</span></span><br><span class="line"><span class="comment"># param = pika.ConnectionParameters(</span></span><br><span class="line"><span class="comment">#     &#x27;192.168.24.157&#x27;, port=5672,</span></span><br><span class="line"><span class="comment">#     virtual_host=&#x27;test&#x27;,</span></span><br><span class="line"><span class="comment">#     credentials=PlainCredentials(&#x27;cloud&#x27;, &#x27;cloud&#x27;)</span></span><br><span class="line"><span class="comment"># )</span></span><br><span class="line">param = pika.URLParameters(<span class="string">&#x27;amqp://cloud:cloud@192.168.24.157:5672/test&#x27;</span>)</span><br><span class="line">connection = pika.BlockingConnection(param)  <span class="comment"># 使用此参数去连接</span></span><br><span class="line">channel = connection.channel()</span><br><span class="line"><span class="comment"># 声明 如果不存在 立即创建  queue的持久化 连接断了数据没了 queue会survive  durable=True</span></span><br><span class="line">channel.queue_declare(queue=<span class="string">&#x27;hello&#x27;</span>)  <span class="comment"># 生产端声明 不存在 直接创建</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">30</span>):</span><br><span class="line">    channel.basic_publish(exchange=<span class="string">&#x27;&#x27;</span>,  <span class="comment"># 交换机 不指定 默认缺省  test/default</span></span><br><span class="line">                          routing_key=<span class="string">&#x27;hello&#x27;</span>,  <span class="comment"># queue的名字</span></span><br><span class="line">                          body=<span class="string">&#x27;data-&#123;:2&#125;&#x27;</span>.<span class="built_in">format</span>(i))</span><br><span class="line">    time.sleep(<span class="number">1</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot; [x] Sent &#x27;Hello World!&#x27;&quot;</span>)</span><br><span class="line">connection.close()</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="消费者"><a href="#消费者" class="headerlink" title="消费者"></a>消费者</h2><figure class="highlight py"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pika</span><br><span class="line"></span><br><span class="line">param = pika.URLParameters(<span class="string">&#x27;amqp://cloud:cloud@192.168.24.157:5672/test&#x27;</span>)</span><br><span class="line">connection = pika.BlockingConnection(param)  <span class="comment"># 使用此参数去连接</span></span><br><span class="line">channel = connection.channel()</span><br><span class="line"><span class="comment"># 声明 如果不存在 立即创建</span></span><br><span class="line">channel.queue_declare(queue=<span class="string">&#x27;hello&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 消费端直接去queue里拿</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">callback</span>(<span class="params">ch, method, properties, body</span>):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot; [x] Received <span class="subst">&#123;body&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># def callback1(ch, method, properties, body):</span></span><br><span class="line"><span class="comment">#     print(f&quot; [y] Received &#123;body&#125;&quot;)</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">channel.basic_consume(queue=<span class="string">&#x27;hello&#x27;</span>,</span><br><span class="line">                      auto_ack=<span class="literal">True</span>,</span><br><span class="line">                      on_message_callback=callback)</span><br><span class="line"><span class="comment"># channel.basic_consume(queue=&#x27;hello&#x27;,</span></span><br><span class="line"><span class="comment">#                       auto_ack=True,</span></span><br><span class="line"><span class="comment">#                       on_message_callback=callback1)</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27; [*] Waiting for messages. To exit press CTRL+C&#x27;</span>)</span><br><span class="line">channel.start_consuming()  <span class="comment"># 产生阻塞 有就去消费</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="应答"><a href="#应答" class="headerlink" title="应答"></a>应答</h2><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">消息队列一般需要缓冲成千上万条消息,队列中消息只有一份，只能给一个消费者处理。消费者读取一个消息后，需要给RabbitMQ Server一个确认(acknowledgement)JI ，然后RabbitMQ才会删除它。</span><br><span class="line">默认basic_consume中auto_ack为False,也就是需要手动确认收到了，不会自动回应。</span><br></pre></td></tr></table></figure>
+
+<h2 id="持久化"><a href="#持久化" class="headerlink" title="持久化"></a>持久化</h2><figure class="highlight py"><table><tr><td class="code"><pre><span class="line">交换机、队列都不会持久化，如需持久化需要未交换机、队列设置durable为<span class="literal">True</span>。</span><br><span class="line">消息持久化，需要队列首先持久化，然后生产者发布消息时增加持久化属性。</span><br><span class="line"></span><br><span class="line">    channel.basic_publish(exchange=<span class="string">&#x27;&#x27;</span>,  <span class="comment"># 交换机 不指定 默认缺省  test/default</span></span><br><span class="line">                          routing_key=<span class="string">&#x27;hello&#x27;</span>,  <span class="comment"># queue的名字</span></span><br><span class="line">                          <span class="comment">#  # 持久化数据 队列必须持久化</span></span><br><span class="line">                          properties=pika.BasicProperties(delivery_mode=<span class="number">2</span>),</span><br><span class="line">                          body=<span class="string">&#x27;data-&#123;:2&#125;&#x27;</span>.<span class="built_in">format</span>(i))</span><br><span class="line">特别注意，持久化不能保证百分之百消息不丢失,如果数据在缓存中，还未真正写入磁盘,数据还是有部分丢失的风险。</span><br></pre></td></tr></table></figure>
+
+<h2 id="公平分发"><a href="#公平分发" class="headerlink" title="公平分发"></a>公平分发</h2><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">上面的轮询方式，不管消费者是否空闲还是繁忙，只是看似公平的分发,但其实Server没有关注消费者未确认消息数。</span><br><span class="line"></span><br><span class="line">使用basic_qos(prefetch_count=1)来解决,该方法告诉RabbitMQ不要一直给消费者发多条消息， 如果消费者为确认上一条消息， 就不要给它发了，发给别的不忙的消费者。</span><br><span class="line">channel.basic_qos(prefetch_count=1)</span><br><span class="line"><span class="comment"># 在这种情况下，将prefetch_count设置为1意味着消费者每次只会预取一条消息。这样做的目的是确保消费者在处理完当前消息之前不会预取更多的消息。这种设置可以帮助实现公平分发，确保每个消费者都能平均地处理消息，而不会出现某个消费者一次性获取过多的消息而导致其他消费者无法及时处理的情况。通过调用channel.basic_qos(prefetch_count=1)，您可以确保每个消费者在处理完当前消息之前只会预取一条消息，从而实现更均衡的消息处理。</span></span><br><span class="line">channel.basic_consume(queue=<span class="string">&#x27;hello&#x27;</span>,</span><br><span class="line">                      auto_ack=False,   <span class="comment"># 取消自动应答</span></span><br><span class="line">                      on_message_callback=callback)</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="发布、订阅模式"><a href="#发布、订阅模式" class="headerlink" title="发布、订阅模式"></a>发布、订阅模式</h2><p>&#x3D;&#x3D;如果exchange是fanout,也就是广播了，routing_ key就无所谓是什么了。&#x3D;&#x3D;</p>
+<p>&#x3D;&#x3D;尝试先启动生产者,再启动消费者试试看。<br>部分数据丢失，因为，exchange收到了数据， 没有queue接收,所以，exchange丢弃 了这些数据。&#x3D;&#x3D;</p>
+<figure class="highlight py"><table><tr><td class="code"><pre><span class="line">Publish/Subscribe发布和订阅，想象一下订阅报纸， 所有订阅者(消费者)订阅这个报纸(消息) ,都应该拿到一份同样内容的报纸。订阅者和消费者之间还有一个exchange,可以想象成邮局，消费者去邮局订阅报纸，报社发报纸到邮局，邮局决定如何投递到消费者手中。</span><br><span class="line"></span><br><span class="line">上例中工作队列模式的使用，相当于，每个人只能拿到不同的报纸。所以，不适用发布订阅模式。</span><br><span class="line"></span><br><span class="line">当前模式的exchange的<span class="built_in">type</span>是fanout,就是一对多，即广播模式。</span><br><span class="line">注意,同一个queue的消息只能被消费一次, 所以,这里使用了多个queue,相当于为了保证不同的消费者拿到同样的数据，每一个消费者都应该有自 己的queue.</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="image-20230925212517591.png" alt="image-20230925212517591"></p>
+<figure class="highlight py"><table><tr><td class="code"><pre><span class="line">param = pika.URLParameters(<span class="string">&#x27;amqp://cloud:cloud@192.168.24.157:5672/test&#x27;</span>)</span><br><span class="line">connection = pika.BlockingConnection(param)  <span class="comment"># 使用此参数去连接</span></span><br><span class="line">channel = connection.channel()</span><br><span class="line">ex_name = <span class="string">&#x27;logs&#x27;</span>                <span class="comment"># 绑定</span></span><br><span class="line">ex_type = <span class="string">&#x27;fanout&#x27;</span></span><br><span class="line">q_name = <span class="string">&#x27;&#x27;</span></span><br><span class="line">channel.exchange_declare(exchange=ex_name,</span><br><span class="line">                         exchange_type=ex_type)</span><br><span class="line"><span class="comment"># 声明 如果不存在 立即创建  queue的持久化 连接断了数据没了 queue会survive  durable=True</span></span><br><span class="line"><span class="comment"># channel.queue_declare(queue=&#x27;hello&#x27;)  # 生产端声明 不存在 直接创建</span></span><br><span class="line"><span class="comment"># 消息持久化     1.队列持久化 2.改变消息的属性值</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">30</span>):</span><br><span class="line">    channel.basic_publish(exchange=ex_name,  <span class="comment"># 交换机 不指定 默认缺省  test/default</span></span><br><span class="line">                          routing_key=<span class="string">&#x27;&#x27;</span>,  <span class="comment"># queue的名字</span></span><br><span class="line">                          <span class="comment">#  # 持久化数据 队列必须持久化</span></span><br><span class="line">                          <span class="comment"># properties=pika.BasicProperties(delivery_mode=2),</span></span><br><span class="line">                          body=<span class="string">&#x27;data-&#123;:2&#125;&#x27;</span>.<span class="built_in">format</span>(i))</span><br><span class="line">    time.sleep(<span class="number">1</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot; [x] Sent &#x27;Hello World!&#x27;&quot;</span>)</span><br><span class="line"></span><br><span class="line">connection.close()</span><br><span class="line">======================================================================================================</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">import</span> pika</span><br><span class="line"><span class="keyword">from</span> pika.adapters.blocking_connection <span class="keyword">import</span> BlockingChannel</span><br><span class="line"></span><br><span class="line">param = pika.URLParameters(<span class="string">&#x27;amqp://cloud:cloud@192.168.24.157:5672/test&#x27;</span>)</span><br><span class="line">connection = pika.BlockingConnection(param)  <span class="comment"># 使用此参数去连接</span></span><br><span class="line">channel: BlockingChannel = connection.channel()</span><br><span class="line">ex_name = <span class="string">&#x27;logs&#x27;</span>  <span class="comment"># 绑定</span></span><br><span class="line">ex_type = <span class="string">&#x27;fanout&#x27;</span></span><br><span class="line">channel.exchange_declare(exchange=ex_name,</span><br><span class="line">                         exchange_type=ex_type)</span><br><span class="line"></span><br><span class="line">result1 = channel.queue_declare(queue=<span class="string">&#x27;&#x27;</span>, exclusive=<span class="literal">True</span>)  <span class="comment"># queue连接断开就消亡</span></span><br><span class="line">q_name1 = result1.method.queue</span><br><span class="line">channel.queue_bind(exchange=ex_name, queue=q_name1)</span><br><span class="line"></span><br><span class="line">result2 = channel.queue_declare(queue=<span class="string">&#x27;&#x27;</span>, exclusive=<span class="literal">True</span>)  <span class="comment"># queue连接断开就消亡</span></span><br><span class="line">q_name2 = result2.method.queue</span><br><span class="line">channel.queue_bind(exchange=ex_name, queue=q_name2)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 消费端直接去queue里拿</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">callback</span>(<span class="params">ch, method, properties, body</span>):</span><br><span class="line">    ctag = method.consumer_tag</span><br><span class="line">    dtag = method.delivery_tag</span><br><span class="line">    time.sleep(<span class="number">1</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;&#123;&#125;|&#123;&#125; ** &#123;&#125;&quot;</span>.<span class="built_in">format</span>(ctag, dtag, body))</span><br><span class="line">    channel.basic_ack(dtag)  <span class="comment"># 手动应答</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">c1 = channel.basic_consume(queue=q_name1,</span><br><span class="line">                           auto_ack=<span class="literal">False</span>,  <span class="comment"># 取消自动应答</span></span><br><span class="line">                           on_message_callback=callback)</span><br><span class="line">c2 = channel.basic_consume(queue=q_name2,</span><br><span class="line">                           auto_ack=<span class="literal">False</span>,  <span class="comment"># 取消自动应答</span></span><br><span class="line">                           on_message_callback=callback)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27; [*] Waiting for messages. To exit press CTRL+C&#x27;</span>)</span><br><span class="line">channel.start_consuming()  <span class="comment"># 产生阻塞 有就去消费</span></span><br><span class="line">connection.close()</span><br><span class="line"></span><br><span class="line">======================================================================================================</span><br><span class="line">ctag1<span class="number">.8711</span>e677a4a74ca289ac87677ac8914f|<span class="number">1</span> ** <span class="string">b&#x27;data-22&#x27;</span></span><br><span class="line">ctag1.e908371606cd45c28a656f64046b5ab1|<span class="number">2</span> ** <span class="string">b&#x27;data-22&#x27;</span></span><br><span class="line">ctag1<span class="number">.8711</span>e677a4a74ca289ac87677ac8914f|<span class="number">3</span> ** <span class="string">b&#x27;data-23&#x27;</span></span><br><span class="line">ctag1.e908371606cd45c28a656f64046b5ab1|<span class="number">4</span> ** <span class="string">b&#x27;data-23&#x27;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<p>路由Routing</p>
+<p><img src="image-20230926175836507.png" alt="image-20230926175836507"></p>
+<figure class="highlight py"><table><tr><td class="code"><pre><span class="line">param = pika.URLParameters(<span class="string">&#x27;amqp://cloud:cloud@192.168.24.157:5672/test&#x27;</span>)</span><br><span class="line">connection = pika.BlockingConnection(param)  <span class="comment"># 使用此参数去连接</span></span><br><span class="line">channel = connection.channel()</span><br><span class="line">ex_name = <span class="string">&#x27;colors&#x27;</span>                <span class="comment"># 绑定</span></span><br><span class="line">ex_type = <span class="string">&#x27;direct&#x27;</span></span><br><span class="line">q_name = <span class="string">&#x27;&#x27;</span></span><br><span class="line">colors = (<span class="string">&#x27;orange&#x27;</span>, <span class="string">&#x27;black&#x27;</span>, <span class="string">&#x27;green&#x27;</span>)</span><br><span class="line">channel.exchange_declare(exchange=ex_name,</span><br><span class="line">                         exchange_type=ex_type)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">30</span>):</span><br><span class="line">    rk = random.choice(colors)  <span class="comment"># routing-key</span></span><br><span class="line">    channel.basic_publish(exchange=ex_name,  <span class="comment"># 交换机 不指定 默认缺省  test/default</span></span><br><span class="line">                          routing_key=rk,  <span class="comment"># queue的名字</span></span><br><span class="line">                          body=<span class="string">&#x27;&#123;&#125;-data-&#123;:2&#125;&#x27;</span>.<span class="built_in">format</span>(rk, i))</span><br><span class="line">    time.sleep(<span class="number">1</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot; [x] Sent &#x27;Hello World!&#x27;&quot;</span>)</span><br><span class="line">connection.close()</span><br><span class="line"></span><br><span class="line">===============================================================================================================</span><br><span class="line"><span class="keyword">import</span> pika</span><br><span class="line"><span class="keyword">from</span> pika.adapters.blocking_connection <span class="keyword">import</span> BlockingChannel</span><br><span class="line"></span><br><span class="line">param = pika.URLParameters(<span class="string">&#x27;amqp://cloud:cloud@192.168.24.157:5672/test&#x27;</span>)</span><br><span class="line">connection = pika.BlockingConnection(param)  <span class="comment"># 使用此参数去连接</span></span><br><span class="line">channel: BlockingChannel = connection.channel()</span><br><span class="line">ex_name = <span class="string">&#x27;colors&#x27;</span>                <span class="comment"># 绑定</span></span><br><span class="line">ex_type = <span class="string">&#x27;direct&#x27;</span></span><br><span class="line">colors = (<span class="string">&#x27;orange&#x27;</span>, <span class="string">&#x27;black&#x27;</span>, <span class="string">&#x27;green&#x27;</span>)</span><br><span class="line">channel.exchange_declare(exchange=ex_name, exchange_type=ex_type)</span><br><span class="line">result1 = channel.queue_declare(queue=<span class="string">&#x27;&#x27;</span>, exclusive=<span class="literal">True</span>)  <span class="comment"># queue连接断开就消亡</span></span><br><span class="line">q_name1 = result1.method.queue</span><br><span class="line"><span class="comment"># channel.queue_bind(exchange=ex_name, routing_key=colors[0], queue=q_name1)</span></span><br><span class="line">channel.queue_bind(q_name1, ex_name, colors[<span class="number">0</span>])</span><br><span class="line">result2 = channel.queue_declare(queue=<span class="string">&#x27;&#x27;</span>, exclusive=<span class="literal">True</span>)  <span class="comment"># queue连接断开就消亡</span></span><br><span class="line">q_name2 = result2.method.queue</span><br><span class="line"><span class="comment"># channel.queue_bind(exchange=ex_name, queue=q_name2)</span></span><br><span class="line">channel.queue_bind(q_name2, ex_name, colors[<span class="number">1</span>])</span><br><span class="line">channel.queue_bind(q_name2, ex_name, colors[<span class="number">2</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 消费端直接去queue里拿</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">callback</span>(<span class="params">ch, method, properties, body</span>):</span><br><span class="line">    ctag = method.consumer_tag</span><br><span class="line">    dtag = method.delivery_tag</span><br><span class="line">    <span class="comment"># time.sleep(1)</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;&#123;&#125;|&#123;&#125; ** &#123;&#125;&quot;</span>.<span class="built_in">format</span>(ctag, dtag, body))</span><br><span class="line">    <span class="comment"># channel.basic_ack(dtag)  # 手动应答</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">c1 = channel.basic_consume(queue=q_name1,</span><br><span class="line">                           auto_ack=<span class="literal">True</span>,  <span class="comment"># 取消自动应答</span></span><br><span class="line">                           on_message_callback=callback)</span><br><span class="line">c2 = channel.basic_consume(queue=q_name2,</span><br><span class="line">                           auto_ack=<span class="literal">True</span>,  <span class="comment"># 取消自动应答</span></span><br><span class="line">                           on_message_callback=callback)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27; [*] Waiting for messages. To exit press CTRL+C&#x27;</span>)</span><br><span class="line">channel.start_consuming()  <span class="comment"># 产生阻塞 有就去消费</span></span><br><span class="line">connection.close()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<p><img src="image-20230926184929261.png" alt="image-20230926184929261"></p>
+<p><img src="image-20230926185442309.png" alt="image-20230926185442309"></p>
+<h2 id="Topic"><a href="#Topic" class="headerlink" title="Topic"></a>Topic</h2><blockquote>
+<p>支持模式匹配而已</p>
+<p>routine_key 必须使用  .点号分割的单词组成</p>
+</blockquote>
+<p>支持使用通配符：</p>
+<ul>
+<li>*    表示样的一个单词</li>
+<li>#   表示0个或者多个单词</li>
+<li>如果queue绑定的routing key只是一个#， 这个queue其实可以接收所有的消息。</li>
+<li>如果没有使用任何通配符，效果类似于direct,因为只能和字符匹配了。</li>
+</ul>
+<p><img src="image-20230926185733828.png" alt="image-20230926185733828"></p>
+<img src="image-20230926190851077.png" alt="image-20230926190851077" style="zoom:150%;">
+
+<img src="image-20230926190904821.png" alt="image-20230926190904821" style="zoom:150%;">
+
+<p><img src="image-20230926191034741.png" alt="image-20230926191034741"></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">param = pika.URLParameters(<span class="string">&#x27;amqp://cloud:cloud@192.168.24.157:5672/test&#x27;</span>)</span><br><span class="line">connection = pika.BlockingConnection(param)  <span class="comment"># 使用此参数去连接</span></span><br><span class="line">channel = connection.channel()</span><br><span class="line">ex_name = <span class="string">&#x27;products&#x27;</span>  <span class="comment"># 绑定</span></span><br><span class="line">ex_type = <span class="string">&#x27;topic&#x27;</span></span><br><span class="line">q_name = <span class="string">&#x27;&#x27;</span></span><br><span class="line">products = (<span class="string">&#x27;pc&#x27;</span>, <span class="string">&#x27;phone&#x27;</span>, <span class="string">&#x27;tv&#x27;</span>)</span><br><span class="line">colors = (<span class="string">&#x27;orange&#x27;</span>, <span class="string">&#x27;black&#x27;</span>, <span class="string">&#x27;red&#x27;</span>)</span><br><span class="line">channel.exchange_declare(exchange=ex_name, exchange_type=ex_type)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">30</span>):</span><br><span class="line">    rk = <span class="string">&quot;&#123;&#125;.&#123;&#125;&quot;</span>.<span class="built_in">format</span>(</span><br><span class="line">        random.choice(products),</span><br><span class="line">        random.choice(colors)</span><br><span class="line">    )</span><br><span class="line">    msg = <span class="string">&#x27;&#123;&#125;-data- &#123;:2&#125;&#x27;</span>.<span class="built_in">format</span>(rk, i)</span><br><span class="line">    channel.basic_publish(exchange=ex_name,  <span class="comment"># 交换机 不指定 默认缺省  test/default</span></span><br><span class="line">                          routing_key=rk,  <span class="comment"># queue的名字</span></span><br><span class="line">                          <span class="comment">#  # 持久化数据 队列必须持久化</span></span><br><span class="line">                          <span class="comment"># properties=pika.BasicProperties(delivery_mode=2),</span></span><br><span class="line">                          body=msg)</span><br><span class="line">    <span class="built_in">print</span>(msg)</span><br><span class="line">    time.sleep(<span class="number">1</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot; [x] Sent &#x27;Hello World!&#x27;&quot;</span>)</span><br><span class="line">connection.close()</span><br><span class="line">==========================================================================================</span><br><span class="line"><span class="keyword">import</span> pika</span><br><span class="line"><span class="keyword">from</span> pika.adapters.blocking_connection <span class="keyword">import</span> BlockingChannel</span><br><span class="line"></span><br><span class="line">param = pika.URLParameters(<span class="string">&#x27;amqp://cloud:cloud@192.168.24.157:5672/test&#x27;</span>)</span><br><span class="line">connection = pika.BlockingConnection(param)  <span class="comment"># 使用此参数去连接</span></span><br><span class="line">channel: BlockingChannel = connection.channel()</span><br><span class="line">ex_name = <span class="string">&#x27;products&#x27;</span>  <span class="comment"># 绑定</span></span><br><span class="line">ex_type = <span class="string">&#x27;topic&#x27;</span></span><br><span class="line">q_name = <span class="string">&#x27;&#x27;</span></span><br><span class="line">products = (<span class="string">&#x27;pc&#x27;</span>, <span class="string">&#x27;phone&#x27;</span>, <span class="string">&#x27;tv&#x27;</span>)</span><br><span class="line">colors = (<span class="string">&#x27;orange&#x27;</span>, <span class="string">&#x27;black&#x27;</span>, <span class="string">&#x27;red&#x27;</span>)</span><br><span class="line">topics = (<span class="string">&#x27;phone.*&#x27;</span>, <span class="string">&#x27;*.red&#x27;</span>)</span><br><span class="line">channel.exchange_declare(exchange=ex_name, exchange_type=ex_type)</span><br><span class="line">channel.exchange_declare(exchange=ex_name, exchange_type=ex_type)</span><br><span class="line">result1 = channel.queue_declare(queue=<span class="string">&#x27;&#x27;</span>, exclusive=<span class="literal">True</span>)  <span class="comment"># queue连接断开就消亡</span></span><br><span class="line">q_name1 = result1.method.queue</span><br><span class="line">channel.queue_bind(q_name1, ex_name, topics[<span class="number">0</span>])</span><br><span class="line">result2 = channel.queue_declare(queue=<span class="string">&#x27;&#x27;</span>, exclusive=<span class="literal">True</span>)  <span class="comment"># queue连接断开就消亡</span></span><br><span class="line">q_name2 = result2.method.queue</span><br><span class="line"><span class="comment"># channel.queue_bind(exchange=ex_name, queue=q_name2)</span></span><br><span class="line">channel.queue_bind(q_name2, ex_name, topics[<span class="number">1</span>])</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 消费端直接去queue里拿</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">callback</span>(<span class="params">ch, method, properties, body</span>):</span><br><span class="line">    ctag = method.consumer_tag</span><br><span class="line">    dtag = method.delivery_tag</span><br><span class="line">    <span class="comment"># time.sleep(1)</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;&#123;&#125;|&#123;&#125; ** &#123;&#125;&quot;</span>.<span class="built_in">format</span>(ctag, dtag, body))</span><br><span class="line">    <span class="comment"># channel.basic_ack(dtag)  # 手动应答</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">c1 = channel.basic_consume(queue=q_name1,</span><br><span class="line">                           auto_ack=<span class="literal">True</span>,  <span class="comment"># 取消自动应答</span></span><br><span class="line">                           on_message_callback=callback)</span><br><span class="line">c2 = channel.basic_consume(queue=q_name2,</span><br><span class="line">                           auto_ack=<span class="literal">False</span>,  <span class="comment"># 取消自动应答</span></span><br><span class="line">                           on_message_callback=callback)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27; [*] Waiting for messages. To exit press CTRL+C&#x27;</span>)</span><br><span class="line">channel.start_consuming()  <span class="comment"># 产生阻塞 有就去消费</span></span><br><span class="line">connection.close()</span><br><span class="line"></span><br><span class="line">==========================================================================================</span><br><span class="line">ctag1<span class="number">.6</span>fc9de865eff46c1878f65ce2a5c8fe4|<span class="number">21</span> ** <span class="string">b&#x27;phone.red-data-  1&#x27;</span></span><br><span class="line">ctag1<span class="number">.2</span>e9e383b51894161bafa4071435eaa21|<span class="number">22</span> ** <span class="string">b&#x27;phone.red-data-  1&#x27;</span></span><br><span class="line">ctag1<span class="number">.2</span>e9e383b51894161bafa4071435eaa21|<span class="number">23</span> ** <span class="string">b&#x27;phone.black-data-  2&#x27;</span></span><br><span class="line">ctag1<span class="number">.6</span>fc9de865eff46c1878f65ce2a5c8fe4|<span class="number">24</span> ** <span class="string">b&#x27;tv.red-data-  3&#x27;</span></span><br><span class="line"></span><br><span class="line">观察消费者拿到的数据，注意观察phone.red的数据出现的次数。</span><br><span class="line">由此，可以知道交换机在路由消息的时候，只要和queue的routing key匹配，就把消息发给该queue。</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="RPC"><a href="#RPC" class="headerlink" title="RPC"></a>RPC</h2><blockquote>
+<p>RabbitMQ的RPC的应用场景较少，因为有更好的RPC通信框架。</p>
+</blockquote>
+<h1 id="消息队列的作用"><a href="#消息队列的作用" class="headerlink" title="消息队列的作用"></a>消息队列的作用</h1><ul>
+<li>系统间解耦</li>
+<li>解决生产者、消费者速度匹配</li>
+<li>高峰时缓冲 低谷有事可做（拦河大坝）</li>
+</ul>
+<blockquote>
+<p>由于稍微上规模的项目都会分层、分模块开发,模块间或系统间尽量不要直接耦合,需要开放公共接口<br>提供给别的模块或系统调用，而调用可能触发并发问题，为了缓冲和解耦,往往采用中间件技术。</p>
+<p>RabbitMQ只是消息中间件中的一种应用程序，也是较常用的消息中间件服务。</p>
+</blockquote>
 ]]></content>
+      <categories>
+        <category>中间件</category>
+      </categories>
+      <tags>
+        <tag>RabbitMQ</tag>
+      </tags>
   </entry>
   <entry>
     <title>TCP/IP基础</title>
@@ -408,6 +521,15 @@
 ]]></content>
   </entry>
   <entry>
+    <title>hello hexo -_-</title>
+    <url>/2023/10/15/hello-hexo/</url>
+    <content><![CDATA[<h2 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h2><p>内容1</p>
+<hr>
+<h2 id="第二章"><a href="#第二章" class="headerlink" title="第二章"></a>第二章</h2><p>内容2</p>
+<h2 id="参考地址"><a href="#参考地址" class="headerlink" title="参考地址"></a>参考地址</h2><p>YzzCloud</p>
+]]></content>
+  </entry>
+  <entry>
     <title>图片显示测试</title>
     <url>/2023/10/15/testimg/</url>
     <content><![CDATA[<p>description: -_-</p>
@@ -418,6 +540,93 @@
       </categories>
       <tags>
         <tag>Hexo-Next</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>vxlan基础介绍</title>
+    <url>/2023/10/17/vxlan%E5%9F%BA%E7%A1%80%E4%BB%8B%E7%BB%8D/</url>
+    <content><![CDATA[<p>description：</p>
+<blockquote>
+<p>VXLAN是一种网络虚拟化技术，可以改进大型云计算在部署时的扩展问题，是对VLAN的一种扩展。VXLAN是一种功能强大的工具，可以穿透三层网络对二层进行扩展。它可通过封装流量并将其扩展到第三层网关，以此来解决VMS（虚拟内存系统）的可移植性限制，使其可以访问在外部IP子网上的服务器。</p>
+</blockquote>
+<span id="more"></span>
+
+<h1 id="vxlan初试"><a href="#vxlan初试" class="headerlink" title="vxlan初试"></a>vxlan初试</h1><h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><h3 id="def"><a href="#def" class="headerlink" title="def"></a>def</h3><p>&#x3D;&#x3D;大二层&#x3D;&#x3D;</p>
+<ul>
+<li>虚拟机摆脱地理位置的限制自由迁移，构建跨地理区域的大二层网络。</li>
+<li>要求网络横向流量提供无阻塞的能力</li>
+<li>构建跨地理区域的服务器集群，提高系统容灾能力</li>
+</ul>
+<ol>
+<li>一种点到点的隧道技术，隧道本质是对报文的重新封装，利用封装后的信息进行报文的转发。</li>
+<li>vxlan是无控制平面的隧道技术。【有控制那个面的隧道技术：LSP（LDP&#x2F;BGP)，IPsec VPN(IKEv1,IKEv2), L2TP, SSL VPN ,VPLS】</li>
+<li>实际上vxlan可以利用evn，evpn协议，sdn控制器来充当它的控制平面。</li>
+<li>vxlan能实现2层互访（同子网互访），3层互访，也可以和传统vlan网络结合组网部署。</li>
+<li>基于IP的封装，封装的对象始终是数据帧。</li>
+</ol>
+<h3 id="POD"><a href="#POD" class="headerlink" title="POD"></a>POD</h3><ul>
+<li>Point of Delivery </li>
+<li>既可以是物理的，也可以说逻辑的数据中心功能模块，一个POD，可以包含机柜、服务器及网络设备、以及相应的基础设施。</li>
+</ul>
+<p>&#x3D;&#x3D;传统数据中心架构网络&#x3D;&#x3D;</p>
+<p><img src="image-20230720195825429.png" alt="image-20230720195825429"></p>
+<p>传统网络大不起来？</p>
+<ol>
+<li>STP阻塞链路，浪费带宽</li>
+<li>用CSS，M-LAG，纯二层网络广播泛洪范围太长，所有设备都要维护MAC地址表，表项容量存在DC扩容的瓶颈。</li>
+</ol>
+<p>云计算时代网络设计？（胖数据网 | Spnie+leaf组网）</p>
+<ol>
+<li>纯IP网络</li>
+<li>扁平化</li>
+<li>无阻赛链路</li>
+<li>可靠，可扩展</li>
+<li>大二层</li>
+<li>报文转发不超过三台设备</li>
+</ol>
+<p><img src="image-20230720202038590.png" alt="image-20230720202038590"></p>
+<p><img src="image-20230720202618943.png" alt="image-20230720202618943"></p>
+<h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><h3 id="NVE"><a href="#NVE" class="headerlink" title="NVE"></a>NVE</h3><ul>
+<li><p>networkl virtualization edge：</p>
+</li>
+<li><p>网络虚拟化边缘设备，进行vxlan封装和解封装的设备。</p>
+</li>
+<li><p>位于overlay网络的边界，实现二、三层的虚拟化功能。</p>
+</li>
+</ul>
+<h3 id="vxlan"><a href="#vxlan" class="headerlink" title="vxlan"></a>vxlan</h3><p>virtual extensible lan</p>
+<ul>
+<li>虚拟可扩展局域网</li>
+<li>通过LMAC in udp 的报文封装方式，实现基于IP overlay的虚拟局域网</li>
+<li>vxlan网络中的NVE以VTEP进行标识</li>
+</ul>
+<h3 id="VTEP"><a href="#VTEP" class="headerlink" title="VTEP"></a>VTEP</h3><ul>
+<li>vxlan tunnel endpoint </li>
+<li>vxlan隧道端点</li>
+<li>每一个NVE至少有一个VTEP，VTEP使用NVE的IP地址表示</li>
+<li>两个VTEP可以确定一条vxlan隧道</li>
+</ul>
+<p><img src="image-20230720205538515.png" alt="image-20230720205538515"></p>
+<h3 id="逻辑抽象"><a href="#逻辑抽象" class="headerlink" title="逻辑抽象"></a>逻辑抽象</h3><p><img src="image-20230720205715739.png" alt="image-20230720205715739"></p>
+<h3 id="报文"><a href="#报文" class="headerlink" title="报文"></a>报文</h3><p><img src="image-20230720210338414.png" alt="image-20230720210338414"></p>
+<h3 id="vni"><a href="#vni" class="headerlink" title="vni"></a>vni</h3><ul>
+<li>表示不同的广播域</li>
+</ul>
+<h3 id="udp-port"><a href="#udp-port" class="headerlink" title="udp port"></a>udp port</h3><ul>
+<li>通过原始帧的SMAC+DMAC hash 后的值。</li>
+<li>Dport 4789 代表vxlan</li>
+<li>目前ensp 的sport 和dport 都是4789</li>
+</ul>
+<p>添加udp封装的原因？</p>
+<p>- </p>
+<p><img src="image-20230720210745483.png" alt="image-20230720210745483"></p>
+<h3 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h3><p>vxlan？什么样的流量需要vxlan需要封装</p>
+]]></content>
+      <categories>
+        <category>Datacom</category>
+      </categories>
+      <tags>
+        <tag>vxlan</tag>
       </tags>
   </entry>
   <entry>
@@ -663,93 +872,6 @@
       </categories>
       <tags>
         <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>vxlan基础介绍</title>
-    <url>/2023/10/17/vxlan%E5%9F%BA%E7%A1%80%E4%BB%8B%E7%BB%8D/</url>
-    <content><![CDATA[<p>description：</p>
-<blockquote>
-<p>VXLAN是一种网络虚拟化技术，可以改进大型云计算在部署时的扩展问题，是对VLAN的一种扩展。VXLAN是一种功能强大的工具，可以穿透三层网络对二层进行扩展。它可通过封装流量并将其扩展到第三层网关，以此来解决VMS（虚拟内存系统）的可移植性限制，使其可以访问在外部IP子网上的服务器。</p>
-</blockquote>
-<span id="more"></span>
-
-<h1 id="vxlan初试"><a href="#vxlan初试" class="headerlink" title="vxlan初试"></a>vxlan初试</h1><h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><h3 id="def"><a href="#def" class="headerlink" title="def"></a>def</h3><p>&#x3D;&#x3D;大二层&#x3D;&#x3D;</p>
-<ul>
-<li>虚拟机摆脱地理位置的限制自由迁移，构建跨地理区域的大二层网络。</li>
-<li>要求网络横向流量提供无阻塞的能力</li>
-<li>构建跨地理区域的服务器集群，提高系统容灾能力</li>
-</ul>
-<ol>
-<li>一种点到点的隧道技术，隧道本质是对报文的重新封装，利用封装后的信息进行报文的转发。</li>
-<li>vxlan是无控制平面的隧道技术。【有控制那个面的隧道技术：LSP（LDP&#x2F;BGP)，IPsec VPN(IKEv1,IKEv2), L2TP, SSL VPN ,VPLS】</li>
-<li>实际上vxlan可以利用evn，evpn协议，sdn控制器来充当它的控制平面。</li>
-<li>vxlan能实现2层互访（同子网互访），3层互访，也可以和传统vlan网络结合组网部署。</li>
-<li>基于IP的封装，封装的对象始终是数据帧。</li>
-</ol>
-<h3 id="POD"><a href="#POD" class="headerlink" title="POD"></a>POD</h3><ul>
-<li>Point of Delivery </li>
-<li>既可以是物理的，也可以说逻辑的数据中心功能模块，一个POD，可以包含机柜、服务器及网络设备、以及相应的基础设施。</li>
-</ul>
-<p>&#x3D;&#x3D;传统数据中心架构网络&#x3D;&#x3D;</p>
-<p><img src="image-20230720195825429.png" alt="image-20230720195825429"></p>
-<p>传统网络大不起来？</p>
-<ol>
-<li>STP阻塞链路，浪费带宽</li>
-<li>用CSS，M-LAG，纯二层网络广播泛洪范围太长，所有设备都要维护MAC地址表，表项容量存在DC扩容的瓶颈。</li>
-</ol>
-<p>云计算时代网络设计？（胖数据网 | Spnie+leaf组网）</p>
-<ol>
-<li>纯IP网络</li>
-<li>扁平化</li>
-<li>无阻赛链路</li>
-<li>可靠，可扩展</li>
-<li>大二层</li>
-<li>报文转发不超过三台设备</li>
-</ol>
-<p><img src="image-20230720202038590.png" alt="image-20230720202038590"></p>
-<p><img src="image-20230720202618943.png" alt="image-20230720202618943"></p>
-<h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><h3 id="NVE"><a href="#NVE" class="headerlink" title="NVE"></a>NVE</h3><ul>
-<li><p>networkl virtualization edge：</p>
-</li>
-<li><p>网络虚拟化边缘设备，进行vxlan封装和解封装的设备。</p>
-</li>
-<li><p>位于overlay网络的边界，实现二、三层的虚拟化功能。</p>
-</li>
-</ul>
-<h3 id="vxlan"><a href="#vxlan" class="headerlink" title="vxlan"></a>vxlan</h3><p>virtual extensible lan</p>
-<ul>
-<li>虚拟可扩展局域网</li>
-<li>通过LMAC in udp 的报文封装方式，实现基于IP overlay的虚拟局域网</li>
-<li>vxlan网络中的NVE以VTEP进行标识</li>
-</ul>
-<h3 id="VTEP"><a href="#VTEP" class="headerlink" title="VTEP"></a>VTEP</h3><ul>
-<li>vxlan tunnel endpoint </li>
-<li>vxlan隧道端点</li>
-<li>每一个NVE至少有一个VTEP，VTEP使用NVE的IP地址表示</li>
-<li>两个VTEP可以确定一条vxlan隧道</li>
-</ul>
-<p><img src="image-20230720205538515.png" alt="image-20230720205538515"></p>
-<h3 id="逻辑抽象"><a href="#逻辑抽象" class="headerlink" title="逻辑抽象"></a>逻辑抽象</h3><p><img src="image-20230720205715739.png" alt="image-20230720205715739"></p>
-<h3 id="报文"><a href="#报文" class="headerlink" title="报文"></a>报文</h3><p><img src="image-20230720210338414.png" alt="image-20230720210338414"></p>
-<h3 id="vni"><a href="#vni" class="headerlink" title="vni"></a>vni</h3><ul>
-<li>表示不同的广播域</li>
-</ul>
-<h3 id="udp-port"><a href="#udp-port" class="headerlink" title="udp port"></a>udp port</h3><ul>
-<li>通过原始帧的SMAC+DMAC hash 后的值。</li>
-<li>Dport 4789 代表vxlan</li>
-<li>目前ensp 的sport 和dport 都是4789</li>
-</ul>
-<p>添加udp封装的原因？</p>
-<p>- </p>
-<p><img src="image-20230720210745483.png" alt="image-20230720210745483"></p>
-<h3 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h3><p>vxlan？什么样的流量需要vxlan需要封装</p>
-]]></content>
-      <categories>
-        <category>Datacom</category>
-      </categories>
-      <tags>
-        <tag>vxlan</tag>
       </tags>
   </entry>
   <entry>
