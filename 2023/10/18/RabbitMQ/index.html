@@ -82,36 +82,36 @@
 <meta name="description" content="介绍：RabbitMQ是一个由erlang开发的AMQP（Advanced Message Queue 高级消息队列协议 ）的开源实现，由于erlang 语言的高并发特性，性能较好，本质是个队列，FIFO 先入先出，里面存放的内容是message。 RabbitMQ 是一个消息中间件：它接收消息并且转发，就类似于一个快递站，卖家把快递通过快递站，送到我们的手上，MQ也是这样，接收并存储消息，再转发">
 <meta property="og:type" content="article">
 <meta property="og:title" content="RabbitMQ">
-<meta property="og:url" content="http://example.com/2023/10/18/RabbitMQ/index.html">
+<meta property="og:url" content="https://yzzcloud.github.io/2023/10/18/RabbitMQ/index.html">
 <meta property="og:site_name" content="CLOUD-YANG">
 <meta property="og:description" content="介绍：RabbitMQ是一个由erlang开发的AMQP（Advanced Message Queue 高级消息队列协议 ）的开源实现，由于erlang 语言的高并发特性，性能较好，本质是个队列，FIFO 先入先出，里面存放的内容是message。 RabbitMQ 是一个消息中间件：它接收消息并且转发，就类似于一个快递站，卖家把快递通过快递站，送到我们的手上，MQ也是这样，接收并存储消息，再转发">
 <meta property="og:locale">
-<meta property="og:image" content="http://example.com/2023/10/18/RabbitMQ/image-20230925174414515.png">
-<meta property="og:image" content="http://example.com/2023/10/18/RabbitMQ/image-20230925174453467.png">
-<meta property="og:image" content="http://example.com/2023/10/18/RabbitMQ/image-20230925174852367.png">
-<meta property="og:image" content="http://example.com/2023/10/18/RabbitMQ/image-20230925175148206.png">
-<meta property="og:image" content="http://example.com/2023/10/18/RabbitMQ/image-20230925173719204.png">
-<meta property="og:image" content="http://example.com/2023/10/18/RabbitMQ/image-20230925181821184.png">
-<meta property="og:image" content="http://example.com/2023/10/18/RabbitMQ/image-20230925182134978.png">
-<meta property="og:image" content="http://example.com/2023/10/18/RabbitMQ/image-20230925182545661.png">
-<meta property="og:image" content="http://example.com/2023/10/18/RabbitMQ/image-20230925182637358.png">
-<meta property="og:image" content="http://example.com/2023/10/18/RabbitMQ/image-20230925201458485.png">
-<meta property="og:image" content="http://example.com/2023/10/18/RabbitMQ/image-20230925202311723.png">
-<meta property="og:image" content="http://example.com/2023/10/18/RabbitMQ/image-20230925202411777.png">
-<meta property="og:image" content="http://example.com/2023/10/18/RabbitMQ/image-20230925212517591.png">
-<meta property="og:image" content="http://example.com/2023/10/18/RabbitMQ/image-20230926175836507.png">
-<meta property="og:image" content="http://example.com/2023/10/18/RabbitMQ/image-20230926184929261.png">
-<meta property="og:image" content="http://example.com/2023/10/18/RabbitMQ/image-20230926185442309.png">
-<meta property="og:image" content="http://example.com/2023/10/18/RabbitMQ/image-20230926185733828.png">
-<meta property="og:image" content="http://example.com/2023/10/18/RabbitMQ/image-20230926190851077.png">
-<meta property="og:image" content="http://example.com/2023/10/18/RabbitMQ/image-20230926190904821.png">
-<meta property="og:image" content="http://example.com/2023/10/18/RabbitMQ/image-20230926191034741.png">
+<meta property="og:image" content="https://yzzcloud.github.io/2023/10/18/RabbitMQ/image-20230925174414515.png">
+<meta property="og:image" content="https://yzzcloud.github.io/2023/10/18/RabbitMQ/image-20230925174453467.png">
+<meta property="og:image" content="https://yzzcloud.github.io/2023/10/18/RabbitMQ/image-20230925174852367.png">
+<meta property="og:image" content="https://yzzcloud.github.io/2023/10/18/RabbitMQ/image-20230925175148206.png">
+<meta property="og:image" content="https://yzzcloud.github.io/2023/10/18/RabbitMQ/image-20230925173719204.png">
+<meta property="og:image" content="https://yzzcloud.github.io/2023/10/18/RabbitMQ/image-20230925181821184.png">
+<meta property="og:image" content="https://yzzcloud.github.io/2023/10/18/RabbitMQ/image-20230925182134978.png">
+<meta property="og:image" content="https://yzzcloud.github.io/2023/10/18/RabbitMQ/image-20230925182545661.png">
+<meta property="og:image" content="https://yzzcloud.github.io/2023/10/18/RabbitMQ/image-20230925182637358.png">
+<meta property="og:image" content="https://yzzcloud.github.io/2023/10/18/RabbitMQ/image-20230925201458485.png">
+<meta property="og:image" content="https://yzzcloud.github.io/2023/10/18/RabbitMQ/image-20230925202311723.png">
+<meta property="og:image" content="https://yzzcloud.github.io/2023/10/18/RabbitMQ/image-20230925202411777.png">
+<meta property="og:image" content="https://yzzcloud.github.io/2023/10/18/RabbitMQ/image-20230925212517591.png">
+<meta property="og:image" content="https://yzzcloud.github.io/2023/10/18/RabbitMQ/image-20230926175836507.png">
+<meta property="og:image" content="https://yzzcloud.github.io/2023/10/18/RabbitMQ/image-20230926184929261.png">
+<meta property="og:image" content="https://yzzcloud.github.io/2023/10/18/RabbitMQ/image-20230926185442309.png">
+<meta property="og:image" content="https://yzzcloud.github.io/2023/10/18/RabbitMQ/image-20230926185733828.png">
+<meta property="og:image" content="https://yzzcloud.github.io/2023/10/18/RabbitMQ/image-20230926190851077.png">
+<meta property="og:image" content="https://yzzcloud.github.io/2023/10/18/RabbitMQ/image-20230926190904821.png">
+<meta property="og:image" content="https://yzzcloud.github.io/2023/10/18/RabbitMQ/image-20230926191034741.png">
 <meta property="article:published_time" content="2023-10-18T14:13:28.000Z">
 <meta property="article:modified_time" content="2023-10-24T04:06:33.441Z">
 <meta property="article:author" content="YANG">
 <meta property="article:tag" content="RabbitMQ">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/2023/10/18/RabbitMQ/image-20230925174414515.png">
+<meta name="twitter:image" content="https://yzzcloud.github.io/2023/10/18/RabbitMQ/image-20230925174414515.png">
 
 
 
@@ -141,7 +141,7 @@
 
 
 
-  <link rel="canonical" href="http://example.com/2023/10/18/RabbitMQ/"/>
+  <link rel="canonical" href="https://YzzCloud.github.io/2023/10/18/RabbitMQ/"/>
 
 
 
@@ -320,7 +320,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/10/18/RabbitMQ/">
+    <link itemprop="mainEntityOfPage" href="https://YzzCloud.github.io/2023/10/18/RabbitMQ/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -577,8 +577,8 @@
   <p><span>文章作者:</span></a></p>
   <p><span>发布时间:</span>2023年10月18日 - 22:13:28</p>
   <p><span>最后更新:</span>2023年10月24日 - 12:06:33</p>
-  <p><span>原始链接:</span><a href="/2023/10/18/RabbitMQ/" title="RabbitMQ">http://example.com/2023/10/18/RabbitMQ/</a>
-    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://example.com/2023/10/18/RabbitMQ/"  aria-label="复制成功！"></i></span>
+  <p><span>原始链接:</span><a href="/2023/10/18/RabbitMQ/" title="RabbitMQ">https://yzzcloud.github.io/2023/10/18/RabbitMQ/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://yzzcloud.github.io/2023/10/18/RabbitMQ/"  aria-label="复制成功！"></i></span>
   </p>
   <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>
 </div>
