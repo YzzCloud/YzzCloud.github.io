@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="TCP/IP," />
+  <meta name="keywords" content="OpenStack," />
 
 
 
@@ -79,27 +79,18 @@
 
 
 
-<meta name="description" content="介绍：SH（Secure Shell，安全外壳）是一种网络安全协议，通过加密和认证机制实现安全的访问和文件传输等业务。传统远程登录或文件传输方式，例如Telnet、FTP，使用明文传输数据，存在很多的安全隐患。随着人们对网络安全的重视，这些方式已经慢慢不被接受。SSH协议通过对网络数据进行加密和验证，在不安全的网络环境中提供了安全的登录和其他安全网络服务。作为Telnet和其他不安全远程shell">
+<meta name="description" content="Description： openstack有些功能只能使用命令行来实现，通过命令行界面返回结果更快，操作效率很高，像创建镜像比较耗时的操作，使用命令行更加合适。命令行提供的命令还可以在脚本中使用，以实现批处理操作，提高工作效率。 常见的管理由创建、删除等。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="SSH原理与实践">
-<meta property="og:url" content="http://example.com/2023/10/18/SSH%E5%8E%9F%E7%90%86%E4%B8%8E%E5%AE%9E%E8%B7%B5/index.html">
+<meta property="og:title" content="OpenStack基础命令行管理">
+<meta property="og:url" content="http://example.com/2023/10/24/OpenStack%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%AE%A1%E7%90%86/index.html">
 <meta property="og:site_name" content="CLOUD-YANG">
-<meta property="og:description" content="介绍：SH（Secure Shell，安全外壳）是一种网络安全协议，通过加密和认证机制实现安全的访问和文件传输等业务。传统远程登录或文件传输方式，例如Telnet、FTP，使用明文传输数据，存在很多的安全隐患。随着人们对网络安全的重视，这些方式已经慢慢不被接受。SSH协议通过对网络数据进行加密和验证，在不安全的网络环境中提供了安全的登录和其他安全网络服务。作为Telnet和其他不安全远程shell">
+<meta property="og:description" content="Description： openstack有些功能只能使用命令行来实现，通过命令行界面返回结果更快，操作效率很高，像创建镜像比较耗时的操作，使用命令行更加合适。命令行提供的命令还可以在脚本中使用，以实现批处理操作，提高工作效率。 常见的管理由创建、删除等。">
 <meta property="og:locale">
-<meta property="og:image" content="http://example.com/2023/10/18/SSH%E5%8E%9F%E7%90%86%E4%B8%8E%E5%AE%9E%E8%B7%B5/image-20220617145822207.png">
-<meta property="og:image" content="http://example.com/2023/10/18/SSH%E5%8E%9F%E7%90%86%E4%B8%8E%E5%AE%9E%E8%B7%B5/image-20220617145855011.png">
-<meta property="og:image" content="http://example.com/2023/10/18/SSH%E5%8E%9F%E7%90%86%E4%B8%8E%E5%AE%9E%E8%B7%B5/image-20220617145937979.png">
-<meta property="og:image" content="http://example.com/2023/10/18/SSH%E5%8E%9F%E7%90%86%E4%B8%8E%E5%AE%9E%E8%B7%B5/image-20220617150000236.png">
-<meta property="og:image" content="http://example.com/2023/10/18/SSH%E5%8E%9F%E7%90%86%E4%B8%8E%E5%AE%9E%E8%B7%B5/image-20220617152725857.png">
-<meta property="og:image" content="http://example.com/2023/10/18/SSH%E5%8E%9F%E7%90%86%E4%B8%8E%E5%AE%9E%E8%B7%B5/image-20220617151729483.png">
-<meta property="og:image" content="http://example.com/2023/10/18/SSH%E5%8E%9F%E7%90%86%E4%B8%8E%E5%AE%9E%E8%B7%B5/image-20220617151805850.png">
-<meta property="og:image" content="http://example.com/2023/10/18/SSH%E5%8E%9F%E7%90%86%E4%B8%8E%E5%AE%9E%E8%B7%B5/image-20220617152621092.png">
-<meta property="article:published_time" content="2023-10-18T13:26:45.000Z">
-<meta property="article:modified_time" content="2023-10-18T13:32:03.086Z">
+<meta property="article:published_time" content="2023-10-24T02:47:25.000Z">
+<meta property="article:modified_time" content="2023-10-24T02:50:22.213Z">
 <meta property="article:author" content="YANG">
-<meta property="article:tag" content="TCP&#x2F;IP">
+<meta property="article:tag" content="OpenStack">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/2023/10/18/SSH%E5%8E%9F%E7%90%86%E4%B8%8E%E5%AE%9E%E8%B7%B5/image-20220617145822207.png">
 
 
 
@@ -129,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://example.com/2023/10/18/SSH原理与实践/"/>
+  <link rel="canonical" href="http://example.com/2023/10/24/OpenStack基础命令行管理/"/>
 
 
 
 
 
-  <title>SSH原理与实践 | CLOUD-YANG</title>
+  <title>OpenStack基础命令行管理 | CLOUD-YANG</title>
   
 
 
@@ -308,7 +299,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/10/18/SSH%E5%8E%9F%E7%90%86%E4%B8%8E%E5%AE%9E%E8%B7%B5/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/10/24/OpenStack%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%AE%A1%E7%90%86/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -325,7 +316,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">SSH原理与实践</h1>
+          <h1 class="post-title" itemprop="name headline">OpenStack基础命令行管理</h1>
         
 
         <div class="post-meta">
@@ -337,8 +328,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2023-10-18T21:26:45+08:00">
-                2023-10-18
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2023-10-24T10:47:25+08:00">
+                2023-10-24
               </time>
             
 
@@ -360,8 +351,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Datacom/" itemprop="url" rel="index">
-                    <span itemprop="name">Datacom</span>
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
                   </a>
                 </span>
 
@@ -396,7 +387,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.2k
+                  1k
                 </span>
               
 
@@ -412,7 +403,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  4
+                  5
                 </span>
               
             </div>
@@ -433,75 +424,14 @@
       
 
       
-        <p>介绍：SH（Secure Shell，安全外壳）是一种网络安全协议，通过加密和认证机制实现安全的访问和文件传输等业务。传统远程登录或文件传输方式，例如Telnet、FTP，使用明文传输数据，存在很多的安全隐患。随着人们对网络安全的重视，这些方式已经慢慢不被接受。SSH协议通过对网络数据进行加密和验证，在不安全的网络环境中提供了安全的登录和其他安全网络服务。作为Telnet和其他不安全远程shell协议的安全替代方案，目前SSH协议已经被全世界广泛使用，大多数设备都支持SSH功能。</p>
+        <p>Description：</p>
+<p>openstack有些功能只能使用命令行来实现，通过命令行界面返回结果更快，操作效率很高，像创建镜像比较耗时的操作，使用命令行更加合适。命令行提供的命令还可以在脚本中使用，以实现批处理操作，提高工作效率。</p>
+<p>常见的管理由创建、删除等。</p>
 <span id="more"></span>
 
-<h1 id="SSH原理与实践"><a href="#SSH原理与实践" class="headerlink" title="SSH原理与实践"></a>SSH原理与实践</h1><h2 id="SSH简介"><a href="#SSH简介" class="headerlink" title="SSH简介"></a>SSH简介</h2><ul>
-<li>SSH（Secure Shell，安全外壳协议）是一种用于在不安全网络上进行安全远程登录和实现其他安全网络服务的协议。</li>
-<li>SSH协议由三个组件构成：SSH传输层协议，SSH用户认证协议，SSH连接协议。<ul>
-<li>SSH传输层协议：版本协商、算法协商、密钥交换</li>
-<li>SSH用户认证协议：用户认证（口令、密钥）</li>
-<li>SSH连接协议：建立会话连接</li>
-</ul>
-</li>
-</ul>
-<h1 id="密码学补充"><a href="#密码学补充" class="headerlink" title="密码学补充"></a>密码学补充</h1><h2 id="对称加密和非对称加密"><a href="#对称加密和非对称加密" class="headerlink" title="对称加密和非对称加密"></a>对称加密和非对称加密</h2><ul>
-<li>对称加密 ：加密和解密使用的是同一把密钥<ul>
-<li>优点：加密速度快</li>
-<li>缺点：不安全，密钥在传输过程当中存在安全风险</li>
-</ul>
-</li>
-</ul>
-<p><img src="image-20220617145822207.png" alt="image-20220617145822207"></p>
-<ul>
-<li><p>非对称加密：每一方拥有两把钥匙，一把叫做公钥，一把叫私钥：公钥加密，私钥解密；私钥加密，公钥解密</p>
-<ul>
-<li><p>优点：安全，私钥是保存在本地的，也就意味着，即便密文被获取到，也无法进行解密</p>
-</li>
-<li><p>缺点：加密速度慢。虽然攻击者无法通过密文得到明文信息，但是可以篡改信息</p>
-</li>
-</ul>
-</li>
-</ul>
-<p><img src="image-20220617145855011.png" alt="image-20220617145855011"></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">如何获取对方的公钥：</span><br><span class="line"><span class="number">1.</span>发起请求来获取</span><br><span class="line"><span class="number">2.</span>可以将自己的公钥放在一台公共的服务器上</span><br></pre></td></tr></table></figure>
+<h1 id="命令行管理-openstack"><a href="#命令行管理-openstack" class="headerlink" title="命令行管理 openstack"></a>命令行管理 openstack</h1><h2 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br></pre></td><td class="code"><pre><span class="line">====================================[user]====================================</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">查看云主机</span></span><br><span class="line">[root@controller ~ (user)]$ openstack server list </span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">删除云主机</span></span><br><span class="line">[root@controller ~ (user)]$ openstack server delete  &lt;server&gt; </span><br><span class="line"></span><br><span class="line">------------------------------------------------------------------------------</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">查看卷</span></span><br><span class="line">[root@controller ~ (user)]$ openstack volume list</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">删除卷</span></span><br><span class="line">[root@controller ~ (user)]$ openstack volume delete &lt;vloume&gt; </span><br><span class="line"></span><br><span class="line">------------------------------------------------------------------------------</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">查看路由器</span></span><br><span class="line"> [root@controller ~ (user)]$ openstack router list</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">查看子网</span></span><br><span class="line">[root@controller ~ (user)]$ openstack subnet list </span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">删除路由网关 <span class="comment">#使用子网来删除路由网关</span></span></span><br><span class="line">[root@controller ~ (user)]$ openstack router remove subnet &lt;router&gt; &lt;subnet&gt;</span><br><span class="line"></span><br><span class="line">------------------------------------------------------------------------------</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">查看VPC/网络</span></span><br><span class="line">[root@controller ~ (user)]$ openstack network list</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">查看VPC下的subnet/子网</span></span><br><span class="line">[root@controller ~ (user)]$ openstack subnet list</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">删除subnet/子网</span></span><br><span class="line">[root@controller ~ (user)]$ openstack subnet delete &lt;subnet&gt;</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">删除VPC/网络</span></span><br><span class="line">[root@controller ~ (user)]$ openstack network delete &lt;network&gt; </span><br><span class="line"></span><br><span class="line">------------------------------------------------------------------------------</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">查看浮动ip</span></span><br><span class="line">[root@controller ~ (user)]$ openstack floating ip list</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">删除浮动ip</span></span><br><span class="line">[root@controller ~ (user)]$ openstack floating ip delete &lt;floating ip&gt;</span><br><span class="line"></span><br><span class="line">------------------------------------------------------------------------------</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">查看安全组</span></span><br><span class="line">[root@controller ~ (user)]$ openstack security group list</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">删除安全组</span></span><br><span class="line">[root@controller ~ (user)]$ openstack security group delete  &lt;group&gt; </span><br><span class="line"></span><br><span class="line">====================================[user]====================================</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">====================================[admin]====================================</span><br><span class="line">[admin]</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">查看用户</span></span><br><span class="line">[root@controller ~ (admin)]$ openstack user list</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">删除用户</span></span><br><span class="line">[root@controller ~ (admin)]$ openstack user delete &lt;user&gt;</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">查看角色</span></span><br><span class="line">[root@controller ~ (admin)]$ openstack role list</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">删除角色</span></span><br><span class="line">[root@controller ~ (admin)]$ openstack role delete &lt;role&gt;</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">查看项目/租户</span></span><br><span class="line">[root@controller ~ (admin)]$ openstack project list</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">删除项目/租户</span></span><br><span class="line">[root@controller ~ (admin)]$ openstack project delete &lt;project&gt;</span><br><span class="line"></span><br><span class="line">-------------------------------------------------------------------------------</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">查看规格</span></span><br><span class="line">[root@controller ~ (admin)]$ openstack flavor list</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">删除规格</span></span><br><span class="line">[root@controller ~ (admin)]$openstack flavor delete &lt;flavor&gt;</span><br><span class="line"></span><br><span class="line">-------------------------------------------------------------------------------</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">查看镜像</span></span><br><span class="line">[root@controller ~ (admin)]$ openstack image list </span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">取消镜像保护/删除镜像</span></span><br><span class="line">[root@controller ~ (admin)]$ openstack image set --unprotected &lt;image&gt;</span><br><span class="line">[root@controller ~ (admin)]$ openstack image delete &lt;image&gt;</span><br><span class="line">-------------------------------------------------------------------------------</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">删除外部网关  和删除路由接口命令有区别</span></span><br><span class="line">[root@controller ~ (admin)]$ openstack router unset --external-gateway &lt;router&gt;</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">删除路由</span></span><br><span class="line">[root@controller ~ (admin)]$ openstack router delete  &lt;router&gt;</span><br><span class="line">-------------------------------------------------------------------------------</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">删除subnet/子网</span></span><br><span class="line">[root@controller ~ (admin)]$ openstack subnet delete &lt;subnet&gt;</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">删除VPC/网络</span></span><br><span class="line">[root@controller ~ (admin)]$ openstack network delete &lt;network&gt;</span><br><span class="line"></span><br><span class="line">====================================[admin]====================================</span><br></pre></td></tr></table></figure>
 
-
-
-<h2 id="数字信封"><a href="#数字信封" class="headerlink" title="数字信封"></a>数字信封</h2><ul>
-<li>核心概念：对于明文还是采用对称加密的方式，而对于对称加密的密钥，采用非对称加密的方式</li>
-<li>优点：在保证安全性的前提下，又提升了加密的速度</li>
-<li>缺点：虽然攻击者无法通过密文得到明文信息，但是可以篡改信息</li>
-</ul>
-<p><img src="image-20220617145937979.png" alt="image-20220617145937979"></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">此时假设甲向乙发送信息：</span><br><span class="line"><span class="number">1.</span>甲采用对称密钥对明文信息进行加密</span><br><span class="line"><span class="number">2.</span>甲使用乙的公钥对对称密钥进行加密，得到就是数字信封</span><br><span class="line"><span class="number">3.</span>甲将密文以及数字信封发送给乙</span><br><span class="line"><span class="number">4.</span>乙收到密文以及数字信封之后，先用自己的私钥对数字信封进行解密，得到对称密钥</span><br><span class="line"><span class="number">5.</span>乙使用解密得到的对称密钥再对密文信息进行解密，得到最原始的明文信息</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<h2 id="数字签名"><a href="#数字签名" class="headerlink" title="数字签名"></a>数字签名</h2><p><img src="image-20220617150000236.png" alt="image-20220617150000236"></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">假设甲要向乙发送信息</span><br><span class="line"><span class="number">1.</span>甲采用对称密钥对明文信息进行加密</span><br><span class="line"><span class="number">2.</span>甲使用乙的公钥对对称密钥进行加密，得到就是数字信封</span><br><span class="line"><span class="number">3.</span>甲将最原始的明文信息通过<span class="built_in">hash</span>计算得到一段<span class="built_in">hash</span>-<span class="number">1</span>值，并将该<span class="built_in">hash</span>值使用甲的私钥进行加密，得到一个数字签名</span><br><span class="line"><span class="number">4.</span>甲将密文、数字信封以及数字签名发送给乙</span><br><span class="line"><span class="number">5.</span>乙通过自己的私钥对数字信封进行解密，得到对称密钥</span><br><span class="line"><span class="number">6.</span>乙使用对称密钥对密文信息进行解密，得到明文信息</span><br><span class="line"><span class="number">7.</span>乙使用该明文信息通过<span class="built_in">hash</span>计算得到一段<span class="built_in">hash</span>-<span class="number">2</span>值</span><br><span class="line"><span class="number">8.</span>乙使用甲的公钥对数字签名进行解密，得到<span class="built_in">hash</span>-<span class="number">1</span>值</span><br><span class="line"><span class="number">9.</span>乙将<span class="built_in">hash</span>-<span class="number">1</span> 和<span class="built_in">hash</span>-<span class="number">2</span>进行比对，如果相同，则可以判定信息没有被篡改，或者说一定是甲发送的信息</span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="SSH传输层协议"><a href="#SSH传输层协议" class="headerlink" title="SSH传输层协议"></a>SSH传输层协议</h1><p><img src="image-20220617152725857.png" alt="image-20220617152725857"></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">密钥交换算法：双方根据该算法生成一个对称加密的密钥，用于后续报文的加密</span><br><span class="line">公钥算法：用于用户认证时选择哪种算法进行非对称加密</span><br><span class="line">对称加密算法：用于报文在进行对称加密时采用哪种对称加密的算法</span><br><span class="line">消息认证算法：用于数据完整性的认证</span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="用户认证原理"><a href="#用户认证原理" class="headerlink" title="用户认证原理"></a>用户认证原理</h1><ul>
-<li>口令认证（账号密码认证）</li>
-</ul>
-<p><img src="image-20220617151729483.png" alt="image-20220617151729483"></p>
-<ul>
-<li>公钥认证（免密登录）</li>
-</ul>
-<p><img src="image-20220617151805850.png" alt="image-20220617151805850"></p>
-<ul>
-<li>免密登录虽然不用输入账号密码，但是需要事先将客户端的公钥保存在服务器中</li>
-</ul>
-<h1 id="SSH连接协议"><a href="#SSH连接协议" class="headerlink" title="SSH连接协议"></a>SSH连接协议</h1><p><img src="image-20220617152621092.png" alt="image-20220617152621092"></p>
+<h2 id="创建"><a href="#创建" class="headerlink" title="创建"></a>创建</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line">====================================[admin]====================================</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">创建项目/租户</span></span><br><span class="line">[root@controller ~ (admin)]$ openstack project  create  &lt;project&gt;</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">创建角色</span></span><br><span class="line">[root@controller ~ (admin)]$ openstack role create &lt;role&gt;</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">创建用户</span></span><br><span class="line">[root@controller ~ (admin)]$ openstack user create --project &lt;project&gt; --password-prompt &lt;user&gt;</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">用户关联项目以及角色    <span class="comment">#三关联</span></span></span><br><span class="line">[root@controller ~ (admin)]$ openstack role add --project &lt;project&gt; --user &lt;user&gt; &lt;role&gt;</span><br><span class="line"></span><br><span class="line">-------------------------------------------------------------------------------</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">创建规格</span></span><br><span class="line">[root@controller ~ (admin)]$ openstack flavor create --vcpus 1 --ram 1024 --disk 10  &lt;flavor&gt;</span><br><span class="line"></span><br><span class="line">-------------------------------------------------------------------------------</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">创建镜像</span></span><br><span class="line">[root@controller ~ (admin)]$ openstack image create --file ./cirros-0.4.0-x86_64-disk.img --disk-format qcow2 --container-format bare --min-disk 5 --min-ram 512 --public &lt;image&gt;</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">设置镜像保护</span></span><br><span class="line">[root@controller ~ (admin)]$ openstack image set --protected &lt;image&gt;</span><br><span class="line"></span><br><span class="line">-------------------------------------------------------------------------------</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">创建外部网络</span></span><br><span class="line">[root@controller ~ (admin)]$ openstack network create --project &lt;project&gt;  --provider-network-type flat --provider-physical-network provider --external --share &lt;network&gt; </span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">创建subnet/子网</span></span><br><span class="line">[root@controller ~ (admin)]$ openstack subnet create --network &lt;network&gt; --subnet-range 221.106.10.0/24 --gateway 221.106.10.1 --dhcp --allocation-pool start=221.106.10.200,end=221.106.10.210 --dns-nameserver 114.114.114.114 &lt;subnet&gt;</span><br><span class="line"></span><br><span class="line">-------------------------------------------------------------------------------</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">创建路由</span></span><br><span class="line">[root@controller ~ (admin)]$ openstack router create --project &lt;project&gt; &lt;router&gt;</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">设置外部路由网关</span></span><br><span class="line">[root@controller ~ (admin)]$ openstack router set --external-gateway &lt;network&gt; &lt;router&gt;</span><br><span class="line">====================================[admin]====================================</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">====================================[user]=====================================</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">创建VPC/网络</span></span><br><span class="line">[root@controller ~ (user)]$ openstack network create &lt;network&gt;</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">创建subnet/子网</span></span><br><span class="line">[root@controller ~ (user)]$ openstack subnet create --network  &lt;network&gt;  --subnet-range 192.168.12.0/24 --gateway 192.168.12.1 --dhcp --allocation-pool start=192.168.12.2,end=192.168.12.100 --dns-nameserver 114.114.114.114  &lt;subnet&gt;</span><br><span class="line"></span><br><span class="line">-------------------------------------------------------------------------------</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">设置路由网关</span></span><br><span class="line">[root@controller ~ (user)]$ openstack router add subnet &lt;router&gt; &lt;subnet&gt;</span><br><span class="line"></span><br><span class="line">-------------------------------------------------------------------------------</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">创建安全组</span></span><br><span class="line">[root@controller ~ (user)]$ openstack security group create &lt;name&gt;</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">添加入方向规则</span></span><br><span class="line">[root@controller ~ (user)]$ openstack security group rule create --protocol icmp --ingress &lt;security group&gt;</span><br><span class="line">[root@controller ~ (user)]$ openstack security group rule create --protocol tcp --dst-port 22 --ingress &lt;security group&gt;</span><br><span class="line">[root@controller ~ (user)]$ openstack security group rule create --protocol tcp --dst-port 80 --ingress &lt;security group&gt;</span><br><span class="line"></span><br><span class="line">-------------------------------------------------------------------------------</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">创建云主机</span></span><br><span class="line">[root@controller ~ (user)]$ openstack server create --flavor &lt;flavor&gt; --image &lt;image&gt; --network &lt;network&gt; --security-group &lt;security group&gt; &lt;name&gt;</span><br><span class="line"></span><br><span class="line">-------------------------------------------------------------------------------</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">申请弹性ip&amp;绑定弹性ip</span></span><br><span class="line">[root@controller ~ (user)]$ openstack floating ip create &lt;network&gt;</span><br><span class="line">[root@controller ~ (user)]$ openstack server add floating ip &lt;server&gt; &lt;floating ip&gt;</span><br><span class="line"></span><br><span class="line">-------------------------------------------------------------------------------</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">创建卷</span></span><br><span class="line">[root@controller ~ (user)]$ openstack volume create --size 5 &lt;name&gt;</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">绑定卷</span></span><br><span class="line">[root@controller ~ (user)]$ openstack server add volume &lt;server&gt; &lt;volume&gt;</span><br><span class="line"></span><br><span class="line">====================================[user]=====================================</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -524,7 +454,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://example.com/2023/10/18/SSH%E5%8E%9F%E7%90%86%E4%B8%8E%E5%AE%9E%E8%B7%B5/" title="SSH原理与实践">http://example.com/2023/10/18/SSH%E5%8E%9F%E7%90%86%E4%B8%8E%E5%AE%9E%E8%B7%B5/</a>
+    <a href="http://example.com/2023/10/24/OpenStack%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%AE%A1%E7%90%86/" title="OpenStack基础命令行管理">http://example.com/2023/10/24/OpenStack%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%AE%A1%E7%90%86/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -540,7 +470,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/TCP-IP/" rel="tag"><i class="fa fa-tag"></i> TCP/IP</a>
+            <a href="/tags/OpenStack/" rel="tag"><i class="fa fa-tag"></i> OpenStack</a>
           
         </div>
       
@@ -553,8 +483,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2023/10/18/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/" rel="next" title="网络编程基础">
-                <i class="fa fa-chevron-left"></i> 网络编程基础
+              <a href="/2023/10/23/%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86%E5%9F%BA%E7%A1%80/" rel="next" title="文件系统原理基础">
+                <i class="fa fa-chevron-left"></i> 文件系统原理基础
               </a>
             
           </div>
@@ -563,8 +493,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2023/10/18/%E7%BD%91%E7%BB%9C%E8%87%AA%E5%8A%A8%E5%8C%96%E6%A8%A1%E5%9D%97paramiko/" rel="prev" title="网络自动化模块paramiko">
-                网络自动化模块paramiko <i class="fa fa-chevron-right"></i>
+              <a href="/2023/10/24/%E7%A7%81%E6%9C%89Harbor%E4%BB%93%E5%BA%93%E6%90%AD%E5%BB%BA%E5%AE%9E%E6%88%98/" rel="prev" title="私有Harbor仓库搭建实战">
+                私有Harbor仓库搭建实战 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -750,7 +680,7 @@ show_date_time();
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#SSH%E5%8E%9F%E7%90%86%E4%B8%8E%E5%AE%9E%E8%B7%B5"><span class="nav-number">1.</span> <span class="nav-text">SSH原理与实践</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#SSH%E7%AE%80%E4%BB%8B"><span class="nav-number">1.1.</span> <span class="nav-text">SSH简介</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AF%86%E7%A0%81%E5%AD%A6%E8%A1%A5%E5%85%85"><span class="nav-number">2.</span> <span class="nav-text">密码学补充</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86%E5%92%8C%E9%9D%9E%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86"><span class="nav-number">2.1.</span> <span class="nav-text">对称加密和非对称加密</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E5%AD%97%E4%BF%A1%E5%B0%81"><span class="nav-number">2.2.</span> <span class="nav-text">数字信封</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E5%AD%97%E7%AD%BE%E5%90%8D"><span class="nav-number">2.3.</span> <span class="nav-text">数字签名</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SSH%E4%BC%A0%E8%BE%93%E5%B1%82%E5%8D%8F%E8%AE%AE"><span class="nav-number">3.</span> <span class="nav-text">SSH传输层协议</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%94%A8%E6%88%B7%E8%AE%A4%E8%AF%81%E5%8E%9F%E7%90%86"><span class="nav-number">4.</span> <span class="nav-text">用户认证原理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SSH%E8%BF%9E%E6%8E%A5%E5%8D%8F%E8%AE%AE"><span class="nav-number">5.</span> <span class="nav-text">SSH连接协议</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%AE%A1%E7%90%86-openstack"><span class="nav-number">1.</span> <span class="nav-text">命令行管理 openstack</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%A0%E9%99%A4"><span class="nav-number">1.1.</span> <span class="nav-text">删除</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA"><span class="nav-number">1.2.</span> <span class="nav-text">创建</span></a></li></ol></li></ol></div>
             
 
           </div>
